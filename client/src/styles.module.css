@@ -1,0 +1,5717 @@
+/* Page frames */
+
+/*
+ * Page grids use minmax(0, 1fr), never a bare 1fr or auto: a grid track grows to fit a wide
+ * child (a row of avatar tiles, a tab strip), which widens the whole page and makes phone
+ * browsers zoom out to fit it. Rows that are wider than the screen scroll inside their panel.
+ */
+.narrowPage {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 12px 16px 32px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 14px;
+}
+
+.hostPage {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 20px 28px 32px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 20px;
+}
+
+.columns {
+  display: grid;
+  gap: 16px;
+}
+
+/* Top bar */
+
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  min-height: 40px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: inherit; /* it is a link back to the menu on every page but a table */
+  text-decoration: none;
+}
+
+.brandMark {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  background: linear-gradient(135deg, var(--blue), var(--sky));
+}
+
+.topMeta {
+  flex: 1;
+  min-width: 0;
+  color: var(--muted);
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.topMeta strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.statusRight {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.timer,
+.timerLarge {
+  color: var(--sky);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.timer {
+  font-size: 20px;
+}
+
+.timerLarge {
+  font-size: 44px;
+}
+
+.timerUrgent {
+  color: var(--ask);
+}
+
+.timerTrack {
+  height: 3px;
+  overflow: hidden;
+  border-radius: 2px;
+  background: var(--line);
+}
+
+.timerFill {
+  height: 100%;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--blue), var(--sky));
+  transition: width 250ms linear;
+}
+
+.timerFillUrgent {
+  background: var(--ask);
+}
+
+/* Phase steps */
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+}
+
+.step {
+  padding-top: 8px;
+  border-top: 2px solid var(--line);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.stepDone {
+  border-top-color: var(--blue-deep);
+}
+
+.stepActive {
+  border-top-color: var(--sky);
+  color: var(--sky);
+}
+
+/* Join */
+
+.hero {
+  display: grid;
+  gap: 10px;
+  padding: 44px 4px 12px;
+}
+
+.heroTitle {
+  margin: 0;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.heroAccent {
+  background: linear-gradient(90deg, var(--blue), var(--sky));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.heroText {
+  margin: 0;
+  color: var(--muted);
+}
+
+.quietLink {
+  color: var(--muted);
+  font-size: 14px;
+  text-align: center;
+}
+
+/* Live mode (M6): the join page's way in, and the /live page. */
+.liveLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border: 1px solid var(--blue);
+  border-radius: 10px;
+  background: var(--blue-dim);
+  color: var(--text);
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.liveLink:hover {
+  border-color: var(--sky);
+}
+
+.liveTag {
+  display: inline-block;
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: var(--blue);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.liveHero {
+  display: grid;
+  gap: 10px;
+  justify-items: start;
+}
+
+.liveTitle {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  font-variant-numeric: tabular-nums;
+}
+
+.liveTable {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 2px;
+}
+
+.liveRow {
+  display: grid;
+  grid-template-columns: 1.6rem auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 4px;
+  border-bottom: 1px solid var(--line);
+}
+
+.liveName {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.liveName a {
+  color: inherit;
+}
+
+.liveNumber {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.codeInput {
+  font-size: 26px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  text-align: center;
+}
+
+/* Lobby */
+
+.lobby {
+  padding: 40px 16px;
+  text-align: center;
+}
+
+.joinHint {
+  margin: 0;
+  color: var(--muted);
+  font-size: 22px;
+}
+
+.joinHint strong {
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-weight: 600;
+}
+
+.roomCode {
+  margin: 12px 0 32px;
+  background: linear-gradient(90deg, var(--blue), var(--sky));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-family: var(--font-mono);
+  font-size: clamp(72px, 15vw, 168px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.1em;
+}
+
+.lobbyPlayers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.chip,
+.chipOffline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 14px 5px 8px;
+  border: 1px solid var(--sky);
+  border-radius: 999px;
+  background: var(--sky-dim);
+  font-size: 15px;
+  animation: rise 240ms ease-out;
+}
+
+.chipOffline {
+  border-color: var(--line-strong);
+  background: none;
+  color: var(--muted);
+}
+
+/* Question */
+
+.header {
+  display: grid;
+  gap: 10px;
+  animation: rise 240ms ease-out;
+}
+
+.question {
+  margin: 0;
+  font-size: 21px;
+  font-weight: 650;
+  line-height: 1.28;
+  letter-spacing: -0.01em;
+}
+
+.questionLarge {
+  margin: 0;
+  font-size: clamp(28px, 3.6vw, 46px);
+  font-weight: 650;
+  line-height: 1.18;
+  letter-spacing: -0.015em;
+}
+
+.unit {
+  color: var(--muted);
+  font-weight: 400;
+}
+
+/* A case question's setup: a few sentences above the question, quieter than the question. */
+.caseContext,
+.caseContextLarge {
+  margin: 0;
+  color: rgb(255 255 255 / 80%);
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.caseContextLarge {
+  max-width: 62ch;
+  font-size: clamp(18px, 1.9vw, 26px);
+  line-height: 1.4;
+}
+
+.caseLabel {
+  display: inline-block;
+  margin-right: 0.7em;
+  padding: 2px 7px;
+  border: 1px solid var(--blue);
+  border-radius: 4px;
+  color: var(--text);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  vertical-align: 0.15em;
+}
+
+/* On the phone's trading screen the setup stays in reach, small, above the one-line question. */
+.caseContextCompact {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.answer {
+  display: grid;
+  gap: 2px;
+  padding: 14px 16px;
+  border: 1px solid var(--sky);
+  border-radius: 10px;
+  background: linear-gradient(120deg, var(--sky-dim), var(--blue-dim));
+  animation: rise 300ms ease-out;
+}
+
+.answerLabel {
+  color: var(--sky);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.answerValue {
+  font-family: var(--font-mono);
+  font-size: 30px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.answer a {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.bestQuote {
+  margin: 6px 0 0;
+  font-size: 14px;
+}
+
+/* Hint */
+
+.hint {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px solid var(--blue);
+  border-radius: 10px;
+  background: linear-gradient(100deg, var(--blue-dim), var(--sky-dim));
+  font-size: 16px;
+  animation: hint-in 600ms ease-out;
+}
+
+.hint strong {
+  font-family: var(--font-mono);
+  font-weight: 700;
+}
+
+.hintLabel {
+  flex: none;
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: var(--blue);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.hintPending {
+  padding: 10px 14px;
+  border: 1px dashed var(--line-strong);
+  border-radius: 10px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* Panels */
+
+.panel {
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+}
+
+.panelTitle {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.heading {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.empty {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* Book */
+
+.bookHead {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px 6px;
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.bookRow {
+  --depth: 0%;
+  position: relative;
+  width: 100%;
+  min-height: 34px;
+  padding: 4px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  background: none;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-variant-numeric: tabular-nums;
+}
+
+.bookRow::before {
+  content: "";
+  position: absolute;
+  inset: 2px 0 2px auto;
+  width: var(--depth);
+  border-radius: 3px;
+  transition: width 200ms ease-out;
+}
+
+.bookRow > span {
+  position: relative;
+}
+
+.bookRow:hover:not(:disabled) {
+  background: var(--panel-strong);
+}
+
+.bookRow:disabled {
+  cursor: default;
+}
+
+.bookAsk {
+  color: var(--ask);
+}
+
+.bookAsk::before {
+  background: var(--ask-dim);
+}
+
+.bookBid {
+  color: var(--green);
+}
+
+.bookBid::before {
+  background: var(--green-dim);
+}
+
+.bookOwn {
+  font-weight: 700;
+}
+
+.ownTag {
+  margin-left: 8px;
+  padding: 1px 5px;
+  border: 1px solid var(--line-strong);
+  border-radius: 3px;
+  color: var(--muted);
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.spread {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 4px 0;
+  padding: 5px 10px;
+  border-block: 1px solid var(--line);
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.emptySide {
+  margin: 0;
+  padding: 7px 10px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* Position gauge */
+
+.gauge {
+  display: grid;
+  gap: 8px;
+}
+
+.gaugeLabels {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.gaugeValue {
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.gaugeTrack {
+  position: relative;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--line);
+}
+
+.gaugeTrack::after {
+  content: "";
+  position: absolute;
+  inset: -3px auto -3px 50%;
+  width: 1px;
+  background: var(--line-strong);
+}
+
+.gaugeFill {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-radius: 3px;
+  transition: all 200ms ease-out;
+}
+
+/* Forms */
+
+.field {
+  display: grid;
+  gap: 5px;
+  margin-bottom: 12px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.input {
+  width: 100%;
+  min-height: 46px;
+  padding: 8px 12px;
+  background: var(--bg-raised);
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 18px;
+  font-variant-numeric: tabular-nums;
+  transition: border-color 120ms;
+}
+
+.input:focus {
+  border-color: var(--blue);
+  outline: none;
+  box-shadow: 0 0 0 3px var(--blue-dim);
+}
+
+.sizes {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 4px;
+}
+
+.size {
+  min-height: 44px;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--muted);
+  cursor: pointer;
+  font-family: var(--font-mono);
+}
+
+.sizeActive {
+  border-color: var(--blue);
+  background: var(--blue-dim);
+  color: var(--text);
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.actions + .actions {
+  margin-top: 8px;
+}
+
+.button {
+  width: 100%;
+  min-height: 46px;
+  padding: 8px 14px;
+  background: var(--panel-strong);
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition:
+    filter 120ms,
+    transform 80ms;
+}
+
+.button:hover:not(:disabled) {
+  filter: brightness(1.15);
+}
+
+.button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.button:disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+}
+
+.buy {
+  background: var(--green);
+  border-color: var(--green);
+  color: #03200c;
+}
+
+.sell {
+  background: var(--ask);
+  border-color: var(--ask);
+  color: #fff;
+}
+
+.lift {
+  border-color: var(--green);
+  background: var(--green-dim);
+  color: var(--green);
+}
+
+.hit {
+  border-color: var(--ask);
+  background: var(--ask-dim);
+  color: var(--ask);
+}
+
+.primary {
+  background: linear-gradient(100deg, var(--blue-deep), var(--blue));
+  border-color: var(--blue);
+  color: #fff;
+}
+
+.liftHit {
+  font-family: var(--font-mono);
+  font-size: 14px;
+}
+
+.lostRoom {
+  margin: 0;
+  padding: 12px 14px;
+  border: 1px solid var(--warn);
+  border-radius: 10px;
+  color: var(--warn);
+  font-size: 16px;
+}
+
+.hostControls {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.hostControls .button {
+  width: auto;
+  min-width: 170px;
+}
+
+/* In a round: three equal columns, centred, so End game sits in the middle and the gaps match. */
+.hostRoundControls {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 190px));
+  justify-content: center;
+  gap: 12px;
+}
+
+.hostRoundControls .button {
+  width: 100%;
+  min-width: 0;
+}
+
+.linkButton {
+  min-height: 32px;
+  padding: 0 10px;
+  background: none;
+  border: 1px solid var(--line-strong);
+  border-radius: 6px;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.error {
+  margin: 12px 0 0;
+  color: var(--ask);
+  font-size: 14px;
+}
+
+.warning {
+  margin: 0 0 12px;
+  color: var(--warn);
+  font-size: 14px;
+}
+
+.notice {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* Rows */
+
+.rows {
+  display: grid;
+  gap: 2px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  min-height: 32px;
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+}
+
+.tapeRow {
+  animation: flash 900ms ease-out;
+  border-radius: 4px;
+}
+
+.tapePrice {
+  flex: none;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.tapeWho {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 5px;
+  min-width: 0;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.tapeWho .nameText {
+  color: var(--text);
+}
+
+.tapeVerb {
+  flex: none;
+}
+
+.rowMuted {
+  color: var(--muted);
+}
+
+.gain {
+  color: var(--green);
+}
+
+.loss {
+  color: var(--ask);
+}
+
+/* Scores */
+
+.scoreRow {
+  display: grid;
+  grid-template-columns: 26px minmax(0, 1fr) 84px 84px;
+  gap: 8px;
+  align-items: center;
+  min-height: 36px;
+  padding: 0 6px;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+.scoreRow > span:nth-child(n + 3) {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.scoreHead {
+  min-height: 24px;
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.scoreHead > span:nth-child(n + 3) {
+  font-family: var(--font-sans);
+}
+
+.scoreLeader {
+  background: linear-gradient(90deg, var(--sky-dim), transparent);
+}
+
+.scoreYou {
+  font-weight: 700;
+}
+
+.scoreRank {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+
+.bigNumber {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 34px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Phone chrome: wordmark, hint countdown, mini leaderboard */
+
+.phoneHeader {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+}
+
+.wordmark {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.timerOval {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 104px;
+  margin-top: 8px;
+  padding: 3px 14px 5px;
+  border: 2px solid var(--blue);
+  border-radius: 999px;
+}
+
+.timerOvalLabel {
+  color: var(--blue);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.timerOvalValue {
+  font-family: var(--font-mono);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+.timerOvalUrgent {
+  border-color: var(--ask);
+}
+
+.timerOvalUrgent .timerOvalLabel,
+.timerOvalUrgent .timerOvalValue {
+  color: var(--ask);
+}
+
+.board {
+  display: grid;
+  gap: 4px;
+  padding-top: 4px;
+}
+
+.boardRow {
+  display: grid;
+  grid-template-columns: 12px 76px minmax(0, 1fr) 42px;
+  gap: 6px;
+  align-items: center;
+  min-height: 18px;
+  font-size: 12px;
+}
+
+.boardRank {
+  color: var(--blue);
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+
+.boardName {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.boardTrack {
+  height: 9px;
+  overflow: hidden;
+  border-radius: 2px;
+  background: var(--line);
+}
+
+.boardBar {
+  display: block;
+  height: 100%;
+  border-radius: 2px;
+  background: var(--blue);
+  transition: width 300ms ease-out;
+}
+
+.boardBarNegative {
+  opacity: 0.4;
+}
+
+.boardScore {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.boardYou {
+  font-weight: 700;
+}
+
+.boardYou .boardBar {
+  background: var(--sky);
+}
+
+.questionCompact {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+/* Wheel order book (SVG) */
+
+.wheels {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.wheelArc {
+  fill: none;
+  stroke: var(--blue);
+  stroke-width: 1.5;
+}
+
+.wheelRow {
+  cursor: pointer;
+  outline: none;
+}
+
+.wheelPill {
+  fill: #000;
+  stroke: var(--blue);
+  stroke-width: 1.25;
+}
+
+.wheelPillOwn {
+  fill: #000;
+  stroke: #fff;
+  stroke-width: 1.5;
+}
+
+.wheelRow:hover .wheelPill,
+.wheelRow:focus-visible .wheelPill {
+  stroke: #fff;
+}
+
+.wheelPrice {
+  fill: #fff;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.wheelBar {
+  fill: var(--blue);
+  opacity: 0.85;
+}
+
+.wheelQty {
+  fill: #fff;
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+
+.wheelEmpty {
+  fill: var(--muted);
+  font-size: 11px;
+}
+
+.midBox {
+  fill: #000;
+  stroke: var(--blue);
+  stroke-width: 1.25;
+}
+
+.midLabel {
+  fill: var(--blue);
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.midValue {
+  fill: #fff;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* Ticket */
+
+.ticketHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.ticketPosition {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.ticketPosition strong {
+  color: #fff;
+  font-family: var(--font-mono);
+}
+
+.ticketRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.ticketRow .sizes {
+  grid-template-columns: repeat(5, 34px);
+  gap: 3px;
+}
+
+.restingChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.chipOrder {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 32px;
+  padding: 0 4px 0 10px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: var(--bg-raised);
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.chipCancel {
+  min-width: 24px;
+  min-height: 24px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: var(--line);
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 12px;
+}
+
+/* Accounts */
+
+.authRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.authMeta {
+  color: var(--muted);
+}
+
+.authLinks {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: none;
+}
+
+.authLinks a {
+  color: var(--sky);
+  font-size: 14px;
+}
+
+.googleButton {
+  min-height: 44px;
+  margin-bottom: 10px;
+}
+
+/* Google draws its button in a frame of its own, in the light colour scheme. This page is dark,
+   and a browser paints a frame whose scheme differs from its page on solid white, which showed
+   as a white box behind the dark button. Matching the scheme lets the frame stay see-through. */
+.googleButton iframe {
+  color-scheme: light;
+}
+
+.privacy {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.saved {
+  margin: 0;
+  padding: 12px 14px;
+  border: 1px solid var(--green);
+  border-radius: 10px;
+  background: var(--green-dim);
+  font-size: 15px;
+}
+
+.saved a {
+  color: var(--sky);
+}
+
+.profileHead {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.avatar {
+  flex: none;
+  display: block;
+  overflow: visible;
+}
+
+.nameWithAvatar {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.nameText {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.inlineLink {
+  color: var(--sky);
+}
+
+/* Your trades (phone): side, size @ price, counterparty, and points once the answer is out */
+
+.tradeSummary {
+  margin: 0 0 8px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.tradeRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 28px;
+  padding: 2px 4px;
+  font-size: 13px;
+}
+
+.tradeSide {
+  flex: none;
+  min-width: 54px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.tradeBuy {
+  color: var(--green);
+}
+
+.tradeSell {
+  color: var(--ask);
+}
+
+.tradeWith {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-width: 0;
+  color: var(--muted);
+}
+
+.tradePoints {
+  flex: none;
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Big rooms */
+
+.lobbyJoin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.lobbyQr {
+  width: 200px;
+  height: 200px;
+  padding: 10px;
+  border: 1px solid var(--line-strong);
+  border-radius: 12px;
+  background: #000;
+}
+
+.panelMeta {
+  color: var(--muted);
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* Host settings: a gear button in the top bar opens a drawer with every setting in sections */
+
+.iconButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border: 1px solid var(--line-strong);
+  border-radius: 10px;
+  background: var(--panel);
+  color: var(--text);
+  cursor: pointer;
+  font-size: 22px;
+  line-height: 1;
+}
+
+.iconButton:hover {
+  border-color: var(--blue);
+  color: var(--sky);
+}
+
+.drawerBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  justify-content: flex-end;
+  background: rgb(0 0 0 / 55%);
+}
+
+.drawer {
+  width: min(440px, 100%);
+  height: 100%;
+  overflow-y: auto;
+  display: grid;
+  align-content: start;
+  gap: 16px;
+  padding: 20px 22px 32px;
+  border-left: 1px solid var(--line-strong);
+  background: var(--bg-raised);
+  box-shadow: -20px 0 50px rgb(0 0 0 / 50%);
+}
+
+.drawerHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.settingsSection {
+  display: grid;
+  gap: 10px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+}
+
+.settingsNote {
+  margin: 0;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.comingSoon {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.settingsHint {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.settingsCount {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.hostField {
+  justify-content: space-between;
+}
+
+.hostField input[type="number"] {
+  width: 76px;
+  height: 36px;
+  padding: 0 8px;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  background: var(--bg-raised);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 15px;
+}
+
+.select {
+  max-width: 240px;
+  min-height: 36px;
+  padding: 0 8px;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  background: var(--bg-raised);
+  color: var(--text);
+  font-size: 13px;
+}
+
+.categoryGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px 12px;
+  text-transform: capitalize;
+}
+
+.botControls {
+  display: grid;
+  gap: 10px;
+}
+
+.buttonRow {
+  display: flex;
+  gap: 8px;
+}
+
+.buttonRow .button {
+  width: auto;
+  flex: 1;
+}
+
+/* Bots and the how-to card */
+
+.botTag {
+  margin-left: 4px;
+  padding: 1px 5px;
+  border: 1px solid var(--line-strong);
+  border-radius: 4px;
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.howToPanel {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: left; /* the host lobby centres everything else; a list needs a left edge */
+}
+
+.howTo {
+  margin: 0;
+  padding-left: 22px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.howTo li + li {
+  margin-top: 4px;
+}
+
+.howTo strong {
+  color: var(--sky);
+}
+
+.hostOption {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.hostOption input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--blue);
+}
+
+.hostSlider {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 6px;
+  max-width: 420px;
+}
+
+.hostSlider input[type="range"] {
+  width: 100%;
+  height: auto;
+  accent-color: var(--blue);
+}
+
+/* Banners: a name card behind the player's name, drawn from Ryan's sketches (Nov 4, 2026). The
+   name is the point. It sits on the left of a plain field, and one quiet motif lives at the
+   right edge or under the name: an underline, a rule with a star, corner arcs, a sash, two
+   stripes, a wave, a set square, a mortarboard. Fields are paper white, black, navy, forest
+   green, deep purple and royal blue, with mint, lavender and sky accents. Motifs are background
+   layers, so they always sit under the text. One class per item id; the animated ones (legendary
+   and mythical only) get a slow light pass, on every page. */
+
+/* Every banner is the same size: a fixed card, the name left-aligned and trimmed to fit, and
+   the same space kept at the right for the motif whether a banner draws one there or not. The
+   banner carries the name alone; prestige sits beside it (Prestige.tsx). */
+.banner {
+  position: relative;
+  display: inline-flex;
+  flex: 0 1 auto;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  width: 12em;
+  max-width: 100%;
+  height: 2.2em;
+  min-width: 0;
+  padding: 0 3em 0 0.7em;
+  overflow: hidden;
+  border-radius: 6px;
+  background-color: var(--bn-bg, #10151d);
+  background-repeat: no-repeat;
+  box-shadow: inset 0 0 0 1px var(--bn-line, rgb(255 255 255 / 12%));
+  color: var(--bn-ink, #fff);
+  letter-spacing: 0.01em;
+  text-align: left;
+  white-space: nowrap;
+}
+
+/* The name card (NameCard.tsx): name, bot tag and prestige star, at one size on every screen.
+   With a banner it is the fixed-size card above; without one, the same line shows plain. Only
+   the host leaderboard scales it up, for a room reading it off a TV. */
+.nameCard {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  max-width: 100%;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.25; /* its own, so a heading or row around it can't collapse the name */
+  white-space: nowrap;
+}
+
+.nameCard .nameText {
+  min-width: 0;
+}
+
+.banner .prestige {
+  color: var(--bn-ink, #fff);
+  opacity: 0.8;
+}
+
+/* Leaderboards: the name cell is a size container, and a banner card scales down as a whole to
+   fit it instead of being squeezed, so its name and motif are never cut off (the host's
+   round-end screen puts a narrower leaderboard beside the trades). The subtracted widths are
+   the avatar and the gap beside it. Browsers without container units keep the fixed size. */
+.scoreRow .nameWithAvatar {
+  container-type: inline-size;
+}
+
+.scoreRow .nameCard.banner {
+  font-size: clamp(12px, calc((100cqi - 28px) / 12), 16px);
+}
+
+.scoreRowLarge .nameCard {
+  font-size: 24px;
+}
+
+.scoreRowLarge .nameCard.banner {
+  font-size: clamp(14px, calc((100cqi - 62px) / 12), 24px);
+}
+
+/* Every name in a leaderboard starts at the same x: a plain name is inset by exactly the
+   padding a banner puts before its name. */
+.scoreRow .nameCard {
+  padding-left: 10px;
+}
+
+.scoreRowLarge .nameCard {
+  padding-left: 14px;
+}
+
+.profileName {
+  margin: 0 0 6px;
+}
+
+.banner .scoreSub {
+  color: var(--bn-sub, rgb(255 255 255 / 72%));
+}
+
+/* The light pass on animated banners. At rest it sits off the card. */
+.banner::after {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+/* Paper banners: dark navy ink on a warm white card. */
+.b_banner_ballpark,
+.b_banner_suspect,
+.b_banner_close,
+.b_banner_podium,
+.b_banner_primetime {
+  --bn-bg: #f3f1ea;
+  --bn-ink: #13203b;
+  --bn-sub: rgb(19 32 59 / 68%);
+  --bn-line: rgb(19 32 59 / 18%);
+  --bn-sheen: rgb(255 255 255 / 75%);
+}
+
+/* For sale */
+
+/* Sketch 8: the name, underlined. Every rule on a banner is level and 1px, like Spot On's. */
+.b_banner_ballpark {
+  background-image: linear-gradient(#13203b, #13203b);
+  background-position: left 0.7em bottom 0.3em;
+  background-size: calc(100% - 1.4em) 1px;
+}
+
+/* Sketch 1: a rule under the name ending in a small star. */
+.b_banner_envelope {
+  --bn-bg: #13203b;
+  --bn-line: rgb(143 184 255 / 22%);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2.5l2.9 6.1 6.6.8-4.9 4.5 1.3 6.6L12 17.3l-5.9 3.2 1.3-6.6-4.9-4.5 6.6-.8z' fill='%238fb8ff'/%3E%3C/svg%3E"),
+    linear-gradient(#8fb8ff, #8fb8ff);
+  background-position:
+    right 0.55em bottom 0.2em,
+    left 0.7em bottom 0.3em;
+  background-size:
+    0.75em 0.75em,
+    calc(100% - 2.25em) 1px;
+}
+
+/* Sketch 2: arcs nested in the top right corner. */
+.b_banner_thumb {
+  --bn-bg: #1c4532;
+  --bn-line: rgb(134 211 172 / 22%);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40' fill='none' stroke='%2386d3ac' stroke-width='1.6'%3E%3Cpath d='M8 0A32 32 0 0 1 40 32M17 0A23 23 0 0 1 40 23M26 0A14 14 0 0 1 40 14'/%3E%3C/svg%3E");
+  background-position: right top;
+  background-size: auto 100%;
+}
+
+/* Sketch 3: one sash across the right end. */
+.b_banner_guess {
+  --bn-bg: #0b0c0f;
+  --bn-line: rgb(61 139 255 / 40%);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 40'%3E%3Cpath d='M12 0H26L60 40H46Z' fill='%233d8bff'/%3E%3C/svg%3E");
+  background-position: right center;
+  background-size: auto 100%;
+}
+
+/* Sketch 6: two stripes, the second running off the edge. */
+.b_banner_magnitude {
+  --bn-bg: #2b1f4d;
+  --bn-line: rgb(183 163 255 / 35%);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 40' fill='%23b7a3ff'%3E%3Cpath d='M6 0H18L54 40H42Z'/%3E%3Cpath d='M26 0H38L60 24.4V37.8Z'/%3E%3C/svg%3E");
+  background-position: right center;
+  background-size: auto 100%;
+}
+
+/* Sketch 7: a wave washing over the top and down the right side. */
+.b_banner_fermi {
+  --bn-bg: #13203b;
+  --bn-line: rgb(143 184 255 / 50%);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 40' preserveAspectRatio='none'%3E%3Cpath d='M0 0H120V40C108 40 100 12 84 9C66 6 40 9 0 6Z' fill='%233d8bff' fill-opacity='.32'/%3E%3Cpath d='M120 40C108 40 100 12 84 9C66 6 40 9 0 6' fill='none' stroke='%238fb8ff' stroke-width='1' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
+  background-size: 100% 100%;
+}
+
+/* Academia: levels, for showing up */
+
+.b_banner_luck {
+  --bn-bg: #0b0c0f;
+  background-image: linear-gradient(#86d3ac, #86d3ac);
+  background-position: left 0.7em bottom 0.3em;
+  background-size: calc(100% - 1.4em) 1px;
+}
+
+.b_banner_suspect {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40' fill='none' stroke='%2313203b' stroke-width='1.6'%3E%3Cpath d='M8 0A32 32 0 0 1 40 32M17 0A23 23 0 0 1 40 23M26 0A14 14 0 0 1 40 14'/%3E%3C/svg%3E");
+  background-position: right top;
+  background-size: auto 100%;
+}
+
+/* Sketch 5: a drafting set square. */
+.b_banner_knowitall {
+  --bn-bg: #1c3a85;
+  --bn-line: rgb(219 231 255 / 25%);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill-rule='evenodd' d='M3 21H21L3 3ZM7 17H12.6L7 11.4Z' fill='%23dbe7ff'/%3E%3C/svg%3E");
+  background-position: right 0.6em center;
+  background-size: auto 58%;
+}
+
+/* Sketch 4: the mortarboard, with a level rule under the name. */
+.b_banner_almanac {
+  --bn-bg: #1c4532;
+  --bn-line: rgb(134 211 172 / 45%);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23f3f1ea'%3E%3Cpath d='M12 4L23 9L12 14L1 9Z'/%3E%3Cpath d='M5.5 11.4V15.6C5.5 18.4 18.5 18.4 18.5 15.6V11.4L12 14.4Z' fill-opacity='.85'/%3E%3Cpath d='M20.2 10.1V16' stroke='%23f3f1ea' stroke-width='1.1'/%3E%3Ccircle cx='20.2' cy='17' r='1.3'/%3E%3C/svg%3E"),
+    linear-gradient(#86d3ac, #86d3ac);
+  background-position:
+    right 0.55em center,
+    left 0.7em bottom 0.3em;
+  background-size:
+    auto 66%,
+    calc(100% - 3em) 1px;
+}
+
+.b_banner_oracle {
+  --bn-bg: #0b0c0f;
+  --bn-line: rgb(183 163 255 / 50%);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 40' preserveAspectRatio='none'%3E%3Cpath d='M0 0H120V40C108 40 100 12 84 9C66 6 40 9 0 6Z' fill='%237c5cff' fill-opacity='.34'/%3E%3Cpath d='M120 40C108 40 100 12 84 9C66 6 40 9 0 6' fill='none' stroke='%23b7a3ff' stroke-width='1' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
+  background-size: 100% 100%;
+}
+
+/* Academia: prestige, for being right */
+
+.b_banner_close {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 40'%3E%3Cpath d='M12 0H26L60 40H46Z' fill='%232f6b4f'/%3E%3C/svg%3E");
+  background-position: right center;
+  background-size: auto 100%;
+}
+
+.b_banner_spoton {
+  --bn-bg: #2b1f4d;
+  --bn-line: rgb(183 163 255 / 25%);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2.5l2.9 6.1 6.6.8-4.9 4.5 1.3 6.6L12 17.3l-5.9 3.2 1.3-6.6-4.9-4.5 6.6-.8z' fill='%23b7a3ff'/%3E%3C/svg%3E"),
+    linear-gradient(#b7a3ff, #b7a3ff);
+  background-position:
+    right 0.55em bottom 0.2em,
+    left 0.7em bottom 0.3em;
+  background-size:
+    0.75em 0.75em,
+    calc(100% - 2.25em) 1px;
+}
+
+.b_banner_reckoning {
+  --bn-bg: #13203b;
+  --bn-line: rgb(134 211 172 / 45%);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill-rule='evenodd' d='M3 21H21L3 3ZM7 17H12.6L7 11.4Z' fill='%2386d3ac'/%3E%3C/svg%3E");
+  background-position: right 0.6em center;
+  background-size: auto 58%;
+}
+
+.b_banner_crystal {
+  --bn-bg: #2b1f4d;
+  --bn-line: rgb(183 163 255 / 55%);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40' fill='none' stroke='%23b7a3ff' stroke-width='1.4'%3E%3Cpath d='M6 0A34 34 0 0 1 40 34M13 0A27 27 0 0 1 40 27M20 0A20 20 0 0 1 40 20M27 0A13 13 0 0 1 40 13M34 0A6 6 0 0 1 40 6'/%3E%3C/svg%3E");
+  background-position: right top;
+  background-size: auto 100%;
+}
+
+/* Reserved for tournament and live-game winners */
+
+.b_banner_podium {
+  --bn-line: rgb(19 32 59 / 35%);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 40'%3E%3Cpath d='M6 0H18L54 40H42Z' fill='%2313203b'/%3E%3Cpath d='M26 0H38L60 24.4V37.8Z' fill='%233d8bff'/%3E%3C/svg%3E");
+  background-position: right center;
+  background-size: auto 100%;
+}
+
+.b_banner_primetime {
+  --bn-line: rgb(19 32 59 / 35%);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 40' preserveAspectRatio='none'%3E%3Cpath d='M0 0H120V40C108 40 100 12 84 9C66 6 40 9 0 6Z' fill='%2313203b' fill-opacity='.14'/%3E%3Cpath d='M120 40C108 40 100 12 84 9C66 6 40 9 0 6' fill='none' stroke='%2313203b' stroke-width='1' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
+  background-size: 100% 100%;
+}
+
+/* Achievement rewards (server/achievements.py) */
+
+.b_banner_onaroll {
+  --bn-bg: #1c4532;
+  --bn-line: rgb(134 211 172 / 35%);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 40' fill='%2386d3ac'%3E%3Cpath d='M6 0H18L54 40H42Z'/%3E%3Cpath d='M26 0H38L60 24.4V37.8Z'/%3E%3C/svg%3E");
+  background-position: right center;
+  background-size: auto 100%;
+}
+
+.b_banner_trophycase {
+  --bn-bg: #1c3a85;
+  --bn-line: rgb(219 231 255 / 25%);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2.5l2.9 6.1 6.6.8-4.9 4.5 1.3 6.6L12 17.3l-5.9 3.2 1.3-6.6-4.9-4.5 6.6-.8z' fill='%23dbe7ff'/%3E%3C/svg%3E"),
+    linear-gradient(#dbe7ff, #dbe7ff);
+  background-position:
+    right 0.55em bottom 0.2em,
+    left 0.7em bottom 0.3em;
+  background-size:
+    0.75em 0.75em,
+    calc(100% - 2.25em) 1px;
+}
+
+.b_banner_deeppockets {
+  --bn-bg: #2b1f4d;
+  --bn-line: rgb(183 163 255 / 30%);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 40'%3E%3Cpath d='M12 0H26L60 40H46Z' fill='%23b7a3ff'/%3E%3C/svg%3E");
+  background-position: right center;
+  background-size: auto 100%;
+}
+
+.b_banner_fullhouse {
+  --bn-bg: #13203b;
+  --bn-line: rgb(243 241 234 / 22%);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40' fill='none' stroke='%23f3f1ea' stroke-width='1.6'%3E%3Cpath d='M8 0A32 32 0 0 1 40 32M17 0A23 23 0 0 1 40 23M26 0A14 14 0 0 1 40 14'/%3E%3C/svg%3E");
+  background-position: right top;
+  background-size: auto 100%;
+}
+
+/* A target: rings and a centre dot. */
+.b_banner_deadcenter {
+  --bn-bg: #0b0c0f;
+  --bn-line: rgb(143 184 255 / 45%);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ccircle cx='22' cy='20' r='13' fill='none' stroke='%238fb8ff' stroke-width='1.5'/%3E%3Ccircle cx='22' cy='20' r='8' fill='none' stroke='%238fb8ff' stroke-width='1.5'/%3E%3Ccircle cx='22' cy='20' r='3.2' fill='%238fb8ff'/%3E%3C/svg%3E");
+  background-position: right 0.3em center;
+  background-size: auto 86%;
+}
+
+.b_banner_comeback {
+  --bn-bg: #1c4532;
+  --bn-line: rgb(134 211 172 / 50%);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 40' preserveAspectRatio='none'%3E%3Cpath d='M0 0H120V40C108 40 100 12 84 9C66 6 40 9 0 6Z' fill='%2386d3ac' fill-opacity='.3'/%3E%3Cpath d='M120 40C108 40 100 12 84 9C66 6 40 9 0 6' fill='none' stroke='%2386d3ac' stroke-width='1' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
+  background-size: 100% 100%;
+}
+
+/* The animated ones: a slow light pass every few seconds, nothing else. Every banner listed here
+   is legendary or mythical, which is why they may move on calm routes too; a test checks this
+   list against the catalog (test_cosmetics.py). */
+.b_banner_deadcenter::after,
+.b_banner_comeback::after,
+.b_banner_guess::after,
+.b_banner_magnitude::after,
+.b_banner_fermi::after,
+.b_banner_almanac::after,
+.b_banner_oracle::after,
+.b_banner_reckoning::after,
+.b_banner_crystal::after,
+.b_banner_podium::after,
+.b_banner_primetime::after {
+  content: "";
+  background: linear-gradient(105deg, transparent 40%, var(--bn-sheen, rgb(255 255 255 / 10%)) 50%, transparent 60%) 100% 0 / 250% 100% no-repeat;
+  animation: bannerSheen 9s ease-in-out infinite;
+}
+
+/* A small locker tile shows a thumbnail of the banner art. */
+.banner.bannerTile {
+  width: 100%;
+  padding: 0 1.4em 0 0.6em;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* Prestige: a small four-point star and the number, beside the name. */
+.prestige {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 0.25em;
+  color: var(--sky);
+  font-family: var(--font-mono);
+  font-size: 0.72em;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.prestige svg {
+  width: 0.9em;
+  height: 0.9em;
+  fill: currentColor;
+}
+
+/* A light pass crosses in the first part of the cycle, then the banner rests. */
+@keyframes bannerSheen {
+  0% {
+    background-position: 100% 0;
+  }
+
+  45%,
+  100% {
+    background-position: 0% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .banner,
+  .banner::after {
+    animation: none;
+  }
+}
+
+/* Calm routes (the host screen, the phone's game view, the leaderboards, the team pages): avatar
+   effects hold still in a designed resting pose, so a leaderboard of twenty avatars doesn't
+   flicker. The exception is the top of the catalog (Ryan, Nov 17, 2026): a legendary or mythical
+   item moves on every page. Avatar.tsx wraps such an item's art in .lively, and nothing inside
+   .lively is calmed. Banners need no rule here: only legendary and mythical banners have a light
+   pass at all (a test holds the list above to that), so every banner that moves, moves
+   everywhere. The effect classes themselves live with the avatar animations further down. */
+
+.calm .flame:not(.lively *),
+.calm .spark:not(.lively *),
+.calm .bill:not(.lively *),
+.calm .bolt:not(.lively *),
+.calm .flash:not(.lively *),
+.calm .twinkle:not(.lively *),
+.calm .pulse:not(.lively *),
+.calm .orbit:not(.lively *),
+.calm .orbitReverse:not(.lively *),
+.calm .sheen:not(.lively *) {
+  animation: none;
+}
+
+.calm .flash:not(.lively *),
+.calm .sheen:not(.lively *) {
+  opacity: 0;
+}
+
+.calm .bolt:not(.lively *) {
+  opacity: 0.6;
+}
+
+.calm .spark:not(.lively *) {
+  opacity: 0.7;
+  transform: translateY(-10px);
+}
+
+.calm .twinkle:not(.lively *) {
+  opacity: 0.8;
+  transform: scale(0.85);
+}
+
+.calm .pulse:not(.lively *) {
+  opacity: 0.2;
+}
+
+.calm .bill:not(.lively *) {
+  opacity: 0.85;
+  transform: translateY(40px) rotate(-8deg);
+}
+
+.calm .bill:nth-child(even):not(.lively *) {
+  transform: translateY(64px) rotate(10deg);
+}
+
+/* Academia (the trophy road) */
+
+.roadHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.roadRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 4px 12px;
+  align-items: center;
+  padding: 10px 8px;
+  border-radius: 10px;
+}
+
+.roadRow + .roadRow {
+  border-top: 1px solid var(--line);
+}
+
+/* Locked banners stay recognisable (that's the point of the road) but dimmed and still. */
+.roadLocked .banner,
+.roadLocked .banner::after {
+  opacity: 0.55;
+  filter: grayscale(0.5);
+  animation: none;
+}
+
+.roadNext {
+  border: 1px solid var(--blue);
+  background: var(--blue-dim);
+}
+
+.roadMeta {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.roadStatus {
+  text-align: right;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+/* Progression: level and prestige */
+
+.nameBlock {
+  display: grid;
+  min-width: 0;
+}
+
+.scoreSub {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.2;
+}
+
+.levelPanel {
+  display: grid;
+  gap: 8px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+}
+
+.levelHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.levelTrack {
+  height: 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--line);
+}
+
+.levelBar {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--blue), var(--sky));
+  transition: width 400ms ease;
+}
+
+/* The host leaderboard: big avatars and names, because watching each other is the game */
+
+.scoreRowLarge {
+  grid-template-columns: 36px minmax(0, 1fr) 130px 140px;
+  gap: 14px;
+  min-height: 68px;
+  padding: 2px 10px;
+  font-size: 24px;
+}
+
+.scoreRowLarge.scoreRowDrinks {
+  grid-template-columns: 36px minmax(0, 1fr) 120px 130px 90px;
+}
+
+.scoreRowLarge .nameWithAvatar {
+  gap: 14px;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.scoreRowLarge .scoreRank {
+  font-size: 18px;
+}
+
+.scoreRowLarge .botTag {
+  margin-left: 8px;
+  font-size: 11px;
+}
+
+.scoreRowLarge.scoreHead {
+  min-height: 24px;
+  font-size: 11px;
+}
+
+/* Drinks mode */
+
+.scoreRowDrinks {
+  grid-template-columns: 26px minmax(0, 1fr) 84px 84px 56px;
+}
+
+@media (max-width: 480px) {
+  .scoreRowDrinks {
+    grid-template-columns: 22px minmax(0, 1fr) 66px 66px 40px;
+    gap: 6px;
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .hostPage .scoreRowDrinks {
+    grid-template-columns: 26px minmax(0, 1fr) 100px 100px 72px;
+  }
+}
+
+.scoreDrinks {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.scoreDrinks small {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.drinkCall {
+  border-color: var(--blue);
+  background: var(--blue-dim);
+  text-align: center;
+}
+
+.drinkNumber {
+  margin: 0;
+  font-size: 40px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+/* The phone's Game / Locker / Shop switch */
+
+.phoneNav {
+  display: flex;
+  gap: 6px;
+}
+
+.phoneNav .slotTab {
+  flex: 1;
+  text-align: center;
+}
+
+/* Marketplace and locker room */
+
+.pageNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.pageLinks a {
+  display: inline-block;
+  margin-left: 14px;
+  color: var(--sky);
+  font-size: 14px;
+  white-space: nowrap; /* a row of links wraps between links, never inside "Locker room" */
+}
+
+.shopHead {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.coin {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #fde68a, #f5c242 60%, #b45309);
+  box-shadow: inset 0 0 0 1px rgb(0 0 0 / 25%);
+}
+
+.price {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.slotTabs {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scrollbar-width: none;
+}
+
+.slotTab {
+  flex: none;
+  min-height: 34px;
+  padding: 6px 14px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: none;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.slotTabActive {
+  border-color: var(--blue);
+  background: var(--blue-dim);
+  color: #fff;
+}
+
+.itemGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.itemCard {
+  --rarity: var(--blue);
+  display: grid;
+  gap: 6px;
+  padding: 10px;
+  border: 1.5px solid var(--rarity);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--rarity) 12%, #000);
+}
+
+.itemPreview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 92px;
+}
+
+.itemName {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.itemMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+}
+
+.rarityTag {
+  color: var(--rarity);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.cardButton {
+  min-height: 38px;
+  font-size: 14px;
+}
+
+.earnedTag {
+  color: var(--sky);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.cardState {
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--green);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* The locker: one flex column, so the preview card can stay pinned while the slots scroll.
+   (A sticky item in a grid can only move inside its own row.) */
+.lockerBody {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+}
+
+/* The preview card sticks with its top above the screen (LockerRoom sets `top`), so a strip
+   stays once it has collapsed. It never changes height, so nothing below it moves or leaves a
+   gap; LockerRoom glides the avatar and name into that strip as the page scrolls. */
+.lockerPreview {
+  position: sticky;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.lockerStuck {
+  border-color: var(--line-strong);
+  box-shadow: 0 8px 20px rgb(0 0 0 / 60%);
+}
+
+.lockerAvatar,
+.lockerNameRow,
+.lockerIdentity .notice {
+  transform-origin: center;
+  will-change: transform;
+}
+
+.lockerAvatar {
+  line-height: 0;
+}
+
+.lockerIdentity {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  width: 100%;
+  min-width: 0;
+}
+
+.lockerNameRow {
+  display: inline-flex;
+  max-width: 100%;
+}
+
+.lockerIdentity .notice {
+  min-height: 1.3em;
+  margin: 0;
+  font-size: 13px;
+}
+
+.optionRow {
+  display: flex;
+  flex-wrap: wrap; /* every option stays visible on a phone; nothing hides off the right edge */
+  gap: 8px;
+  padding: 4px 2px 6px;
+}
+
+.optionTile {
+  --rarity: var(--line-strong);
+  flex: none;
+  width: 68px;
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: 4px;
+  min-height: 84px;
+  padding: 6px 4px;
+  border: 1.5px solid var(--rarity);
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--rarity) 10%, #000);
+  color: #fff;
+  cursor: pointer;
+}
+
+.optionTileActive {
+  box-shadow: 0 0 0 2px #fff;
+}
+
+.optionLabel {
+  font-size: 10px;
+  line-height: 1.15;
+  text-align: center;
+}
+
+.optionNone {
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  font-size: 18px;
+}
+
+.swatch {
+  display: inline-block;
+  border: 1px solid rgb(255 255 255 / 25%);
+  border-radius: 50%;
+}
+
+/* Animated avatar parts. They run wherever an avatar is drawn. */
+
+.flame {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: flicker 0.55s ease-in-out infinite alternate;
+}
+
+.spark {
+  transform-box: fill-box;
+  animation: spark 1.6s ease-out infinite;
+}
+
+.bill {
+  transform-box: fill-box;
+  animation: fall 2.6s linear infinite;
+}
+
+/* Lightning strikes about every nine seconds, briefly, with a faint glow rather than a flash. */
+.bolt {
+  opacity: 0;
+  animation: strike 9s steps(1, end) infinite;
+}
+
+.flash {
+  opacity: 0;
+  animation: flashglow 9s steps(1, end) infinite;
+}
+
+.twinkle {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: twinkle 1.4s ease-in-out infinite alternate;
+}
+
+.pulse {
+  animation: pulse 2.2s ease-in-out infinite alternate;
+}
+
+.orbit {
+  transform-origin: 50px 50px;
+  animation: orbit 7s linear infinite;
+}
+
+.orbitReverse {
+  transform-origin: 50px 50px;
+  animation: orbit 11s linear infinite reverse;
+}
+
+.sheen {
+  transform-box: fill-box;
+  animation: sheen 2.8s ease-in-out infinite;
+}
+
+@keyframes flicker {
+  from {
+    transform: scaleY(0.9) scaleX(1.05) skewX(-2deg);
+  }
+
+  to {
+    transform: scaleY(1.12) scaleX(0.95) skewX(3deg);
+  }
+}
+
+@keyframes spark {
+  0% {
+    transform: translateY(6px);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-26px);
+    opacity: 0;
+  }
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(-14deg);
+    opacity: 0;
+  }
+
+  12% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(108px) rotate(16deg);
+    opacity: 0.7;
+  }
+}
+
+@keyframes strike {
+  0%,
+  85% {
+    opacity: 0;
+  }
+
+  86% {
+    opacity: 1;
+  }
+
+  88% {
+    opacity: 0.2;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  94% {
+    opacity: 0.6;
+  }
+
+  97%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes flashglow {
+  0%,
+  85% {
+    opacity: 0;
+  }
+
+  86% {
+    opacity: 0.1;
+  }
+
+  90% {
+    opacity: 0.14;
+  }
+
+  94%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes twinkle {
+  from {
+    transform: scale(0.55) rotate(0deg);
+    opacity: 0.4;
+  }
+
+  to {
+    transform: scale(1.15) rotate(25deg);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  from {
+    opacity: 0.12;
+  }
+
+  to {
+    opacity: 0.32;
+  }
+}
+
+@keyframes orbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes sheen {
+  0% {
+    transform: translateX(-70px);
+  }
+
+  60%,
+  100% {
+    transform: translateX(70px);
+  }
+}
+
+/* Mythical cards: a neon outline that runs around the box, always moving. */
+
+@property --neon-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+.mythicalCard {
+  position: relative;
+  border-color: transparent;
+  background:
+    linear-gradient(#0a0d12, #0a0d12) padding-box,
+    conic-gradient(from var(--neon-angle), #3d8bff, #a855f7, #22d3ee, #8b5cf6, #3d8bff) border-box;
+  border-width: 2px;
+  box-shadow: 0 0 18px rgb(139 92 246 / 35%);
+  animation: neon 3s linear infinite;
+}
+
+.mythicalCard .rarityTag {
+  background: linear-gradient(90deg, #3d8bff, #a855f7, #22d3ee);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@keyframes neon {
+  to {
+    --neon-angle: 360deg;
+  }
+}
+
+/* Bundles */
+
+.bundleItems {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.wasPrice {
+  color: var(--muted);
+  text-decoration: line-through;
+  font-weight: 400;
+}
+
+.coinsPanel {
+  display: grid;
+  gap: 2px;
+  padding: 14px 16px;
+  border: 1px solid var(--blue);
+  border-radius: 10px;
+  background: var(--blue-dim);
+}
+
+.coinsLabel {
+  color: var(--blue);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.coinsValue {
+  font-family: var(--font-mono);
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.statGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.statTile {
+  display: grid;
+  gap: 2px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+  text-align: center;
+}
+
+/* Anti-cheat review (M6): a flagged player's recent quotes, bullseyes marked. */
+.flagQuotes {
+  overflow-x: auto;
+}
+
+.flagTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.flagTable th {
+  text-align: left;
+  color: var(--muted);
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--line);
+}
+
+.flagTable td {
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+
+.flagTable td:first-child {
+  min-width: 9rem;
+}
+
+.flagNum {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.flagHit td {
+  background: var(--blue-dim);
+}
+
+.statValue {
+  font-family: var(--font-mono);
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.statLabel {
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.gameRow {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr) 52px 70px 56px;
+  gap: 8px;
+  align-items: center;
+  min-height: 32px;
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+}
+
+.gameRow > span:nth-child(n + 3) {
+  font-family: var(--font-mono);
+  text-align: right;
+}
+
+.buttonLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+@keyframes hint-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.97);
+    box-shadow: 0 0 0 0 rgb(61 139 255 / 60%);
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale(1.01);
+    box-shadow: 0 0 0 8px rgb(61 139 255 / 0%);
+  }
+}
+
+@keyframes flash {
+  from {
+    background: var(--blue-dim);
+  }
+}
+
+@media (min-width: 720px) {
+  .columns {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .hostPage .bookRow {
+    min-height: 38px;
+    font-size: 20px;
+  }
+
+  .hostPage .row {
+    min-height: 40px;
+    font-size: 18px;
+  }
+
+  .hostPage .hint {
+    font-size: 24px;
+  }
+
+  .hostPage .scoreRow {
+    min-height: 44px;
+    font-size: 19px;
+  }
+}
+
+/* Achievements (M4): badges, tier tags, the game-end reveal, the full list, and the profile bio. */
+
+.badge {
+  display: block;
+  flex: none;
+}
+
+.badgeLocked {
+  opacity: 0.32;
+  filter: grayscale(1);
+}
+
+.tierTag {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 6px;
+  border: 1px solid currentColor;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  vertical-align: 2px;
+}
+
+.tier_bronze {
+  color: #e9b884;
+}
+
+.tier_silver {
+  color: #e6eaef;
+}
+
+.tier_gold {
+  color: #f7d77a;
+}
+
+.tier_platinum {
+  color: #bfe6ff;
+}
+
+.tier_mystery {
+  color: #c4b5fd;
+}
+
+/* The game-end list: rows arrive in turn; each badge's entrance grows with its tier. */
+.unlockList {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.unlockRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  animation: revealRise 420ms ease-out both;
+}
+
+.unlockText {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.unlockName {
+  font-weight: 700;
+}
+
+.unlockNeed {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.reveal {
+  display: inline-block;
+  line-height: 0;
+}
+
+.reveal_bronze {
+  animation: revealRise 420ms ease-out both;
+}
+
+.reveal_silver {
+  animation:
+    revealRise 420ms ease-out both,
+    revealGlowSilver 1000ms ease-out both;
+}
+
+.reveal_gold {
+  animation:
+    revealPop 560ms cubic-bezier(0.2, 1.4, 0.4, 1) both,
+    revealGlowGold 1300ms ease-out both;
+}
+
+.reveal_platinum {
+  animation:
+    revealSpin 760ms cubic-bezier(0.2, 1.2, 0.4, 1) both,
+    revealGlowPlatinum 1500ms ease-out both;
+}
+
+.reveal_mystery {
+  animation:
+    revealWobble 1100ms ease-in-out both,
+    revealGlowMystery 1700ms ease-out both;
+}
+
+@keyframes revealRise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+@keyframes revealPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale(1.14);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes revealSpin {
+  0% {
+    opacity: 0;
+    transform: perspective(200px) rotateY(180deg) scale(0.6);
+  }
+
+  70% {
+    opacity: 1;
+    transform: perspective(200px) rotateY(-12deg) scale(1.1);
+  }
+
+  100% {
+    transform: perspective(200px) rotateY(0deg) scale(1);
+  }
+}
+
+@keyframes revealWobble {
+  0% {
+    opacity: 0;
+    transform: scale(0.6) rotate(0deg);
+  }
+
+  35% {
+    opacity: 1;
+    transform: scale(1.12) rotate(-14deg);
+  }
+
+  55% {
+    transform: scale(1.1) rotate(11deg);
+  }
+
+  72% {
+    transform: scale(1.05) rotate(-6deg);
+  }
+
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes revealGlowSilver {
+  0%,
+  35% {
+    filter: drop-shadow(0 0 0 rgb(230 234 239 / 0%));
+  }
+
+  60% {
+    filter: drop-shadow(0 0 7px rgb(230 234 239 / 70%));
+  }
+
+  100% {
+    filter: drop-shadow(0 0 0 rgb(230 234 239 / 0%));
+  }
+}
+
+@keyframes revealGlowGold {
+  0%,
+  35% {
+    filter: drop-shadow(0 0 0 rgb(245 194 66 / 0%));
+  }
+
+  60% {
+    filter: drop-shadow(0 0 11px rgb(245 194 66 / 85%));
+  }
+
+  100% {
+    filter: drop-shadow(0 0 0 rgb(245 194 66 / 0%));
+  }
+}
+
+@keyframes revealGlowPlatinum {
+  0%,
+  40% {
+    filter: drop-shadow(0 0 0 rgb(191 230 255 / 0%));
+  }
+
+  65% {
+    filter: drop-shadow(0 0 14px rgb(191 230 255 / 90%));
+  }
+
+  100% {
+    filter: drop-shadow(0 0 0 rgb(191 230 255 / 0%));
+  }
+}
+
+@keyframes revealGlowMystery {
+  0%,
+  30% {
+    filter: drop-shadow(0 0 0 rgb(167 139 250 / 0%));
+  }
+
+  60% {
+    filter: drop-shadow(0 0 16px rgb(167 139 250 / 95%));
+  }
+
+  100% {
+    filter: drop-shadow(0 0 3px rgb(167 139 250 / 40%));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .unlockRow,
+  .reveal {
+    animation: none !important;
+  }
+}
+
+/* The full list (/profile/achievements) */
+.achievementHead {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.achievementName {
+  margin: 0 0 2px;
+  font-size: 18px;
+}
+
+.achievementProgress {
+  margin: 4px 0 0;
+  color: var(--sky);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.tierList {
+  display: grid;
+}
+
+.tierRow {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.tierRow + .tierRow {
+  border-top: 1px solid var(--line);
+}
+
+.tierRowLocked .tierText {
+  color: var(--muted);
+}
+
+.tierText {
+  display: grid;
+  gap: 2px;
+  font-size: 14px;
+}
+
+.tierReward {
+  color: var(--sky);
+  font-size: 12px;
+}
+
+.tierStatus {
+  font-size: 12px;
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* The profile: badges earned, and the bio */
+.badgeShelf {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.badgeButton {
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  cursor: pointer;
+  line-height: 0;
+}
+
+.badgeButton:focus-visible {
+  outline: 2px solid var(--sky);
+  outline-offset: 2px;
+}
+
+/* The bubble a tapped badge shows: above the badge, kept inside the shelf, gone after a moment. */
+.badgeBubble {
+  position: absolute;
+  z-index: 30;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 2px 0;
+  padding: 7px 9px;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  background: var(--panel-strong);
+  box-shadow: 0 6px 18px rgb(0 0 0 / 55%);
+  font-size: 12px;
+  line-height: 1.35;
+  pointer-events: none;
+  transform: translateY(calc(-100% - 8px));
+  animation: badgeBubble linear both;
+}
+
+.badgeBubble::after {
+  position: absolute;
+  bottom: -5px;
+  left: calc(var(--caret) - 5px);
+  width: 10px;
+  height: 10px;
+  border-right: 1px solid var(--line-strong);
+  border-bottom: 1px solid var(--line-strong);
+  background: var(--panel-strong);
+  transform: rotate(45deg);
+  content: "";
+}
+
+.badgeBubble .tierTag {
+  justify-self: start;
+}
+
+.badgeBubbleText {
+  grid-column: 1 / -1;
+  color: var(--muted);
+}
+
+/* In quickly, hold, out softly: the whole visit is the element's animation-duration. */
+@keyframes badgeBubble {
+  0% {
+    opacity: 0;
+    translate: 0 4px;
+  }
+
+  6%,
+  82% {
+    opacity: 1;
+    translate: 0 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .badgeBubble {
+    animation: none;
+  }
+}
+
+.bioText {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.bioInput {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  background: var(--bg-raised);
+  color: var(--text);
+  font: inherit;
+  resize: vertical;
+}
+
+.bioFoot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+/* End-of-game awards: three superlatives above the final scores. */
+.awardRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.awardCard {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+  animation: rise 240ms ease-out;
+}
+
+.awardMine {
+  border-color: var(--blue);
+  background: var(--blue-dim);
+}
+
+.awardIcon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--panel-strong);
+  color: var(--sky);
+}
+
+.awardText {
+  display: grid;
+  gap: 1px;
+  min-width: 0;
+}
+
+.awardTitle {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.awardWho {
+  overflow: hidden;
+  font-size: 16px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.awardDetail {
+  color: var(--sky);
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.awardRowLarge {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* two awards share the row, too */
+  gap: 14px;
+}
+
+.awardRowLarge .awardCard {
+  padding: 16px 18px;
+}
+
+.awardRowLarge .awardIcon {
+  width: 52px;
+  height: 52px;
+}
+
+.awardRowLarge .awardTitle {
+  font-size: 13px;
+}
+
+.awardRowLarge .awardWho {
+  font-size: 24px;
+}
+
+.awardRowLarge .awardDetail {
+  font-size: 15px;
+}
+
+/* The game log (/profile/games/:id) */
+.gameLink {
+  margin: 0 -6px;
+  padding: 0 6px;
+  border-radius: 6px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.gameLink:hover,
+.gameLink:focus-visible {
+  background: var(--panel-strong);
+}
+
+/* All games: who won when it wasn't you, on a line under the room that runs to the row's end. */
+.historyWinner {
+  grid-column: 2 / -1;
+  margin: -8px 0 6px;
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.logResult {
+  margin: 8px 0 0;
+  font-weight: 600;
+}
+
+.logQuestion {
+  margin: 0 0 4px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.logAnswer {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.logAnswer strong {
+  color: var(--sky);
+  font-family: var(--font-mono);
+}
+
+.logFill {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: center;
+  min-height: 28px;
+  font-size: 14px;
+}
+
+.logFill > span:last-child {
+  font-family: var(--font-mono);
+  text-align: right;
+}
+
+.buyText {
+  color: var(--green);
+  font-family: var(--font-mono);
+}
+
+.sellText {
+  color: #ff453a;
+  font-family: var(--font-mono);
+}
+
+.logPlayer {
+  display: grid;
+  grid-template-columns: 26px minmax(0, 1fr) auto 84px;
+  gap: 8px;
+  align-items: center;
+  min-height: 34px;
+  font-size: 15px;
+}
+
+.logPlayer > span:last-child {
+  font-family: var(--font-mono);
+  text-align: right;
+}
+
+.friendButton {
+  padding: 3px 9px;
+  border: 1px solid var(--sky);
+  border-radius: 999px;
+  background: none;
+  color: var(--sky);
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+}
+
+.friendButton:disabled {
+  cursor: progress;
+  opacity: 0.6;
+}
+
+/* Social (M5): the bell, people lists, the friends and group leaderboards, invites. Calm on
+   purpose: no motion beyond what a tap needs. */
+
+.smallButton,
+.smallPrimary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
+  padding: 0 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  background: var(--panel-strong);
+  color: var(--text);
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.smallPrimary {
+  background: linear-gradient(100deg, var(--blue-deep), var(--blue));
+  border-color: var(--blue);
+  color: #fff;
+}
+
+.smallButton:disabled,
+.smallPrimary:disabled {
+  cursor: progress;
+  opacity: 0.6;
+}
+
+.relationTag {
+  color: var(--muted);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.navRight {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bell {
+  position: relative;
+  flex: none;
+}
+
+.bellButton {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid var(--line-strong);
+  border-radius: 10px;
+  background: var(--panel);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.bellCount {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: var(--blue);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 18px;
+  text-align: center;
+}
+
+.bellPanel {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 30;
+  width: min(340px, calc(100vw - 32px));
+  max-height: 70vh;
+  overflow-y: auto;
+  padding: 10px;
+  border: 1px solid var(--line-strong);
+  border-radius: 10px;
+  background: var(--bg-raised);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+  text-align: left;
+}
+
+/* On a phone the bell sits mid-row, so the list pins to the screen's edges instead. */
+@media (max-width: 560px) {
+  .bellPanel {
+    position: fixed;
+    top: 64px;
+    right: 16px;
+    left: 16px;
+    width: auto;
+  }
+}
+
+.bellList {
+  display: grid;
+  gap: 2px;
+  margin: 0 0 8px;
+  padding: 0;
+  list-style: none;
+}
+
+.bellItem {
+  display: grid;
+  gap: 6px;
+  padding: 8px;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.bellUnread {
+  background: var(--panel-strong);
+}
+
+.bellText a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.bellActions {
+  display: flex;
+  gap: 6px;
+}
+
+.bellFoot {
+  display: block;
+  padding: 6px 8px 2px;
+  color: var(--sky);
+  font-size: 13px;
+}
+
+.personRow,
+.groupRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-height: 48px;
+  padding: 4px 0;
+  color: inherit;
+  text-decoration: none;
+}
+
+.groupRow {
+  border-bottom: 1px solid var(--line);
+}
+
+.groupRow:last-child {
+  border-bottom: none;
+}
+
+.personMain {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  color: inherit;
+  text-decoration: none;
+}
+
+.personText {
+  display: grid;
+  min-width: 0;
+  color: inherit;
+  text-decoration: none;
+}
+
+.personDetail {
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+a.personDetail {
+  color: var(--sky);
+}
+
+.personActions {
+  display: flex;
+  flex: none;
+  gap: 6px;
+}
+
+.inlineForm {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.inlineForm .field {
+  flex: 1;
+  min-width: 0;
+  margin-bottom: 0;
+}
+
+.inlineForm .smallButton {
+  min-height: 46px;
+}
+
+.handleField {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.handleAt {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 18px;
+}
+
+.codeRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  font-size: 14px;
+}
+
+.friendCode,
+.friendCodeInput {
+  font-family: var(--font-mono);
+  letter-spacing: 0.12em;
+}
+
+.friendCodeInput {
+  text-transform: uppercase;
+}
+
+.subTitle {
+  margin: 16px 0 6px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Friends and group leaderboards: rank, avatar, the name card. */
+.friendRank {
+  display: grid;
+  grid-template-columns: 22px 28px minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: center;
+  min-height: 44px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.friendRankName {
+  min-width: 0;
+  color: inherit;
+  text-decoration: none;
+}
+
+.inviteBanner {
+  border-color: var(--blue);
+  background: linear-gradient(180deg, rgba(37, 99, 235, 0.12), var(--panel));
+}
+
+.inviteBanner p {
+  margin: 0 0 10px;
+}
+
+.dangerButton {
+  border-color: var(--ask);
+  color: var(--ask);
+}
+
+.reviewText {
+  margin: 0 0 8px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow-wrap: anywhere;
+}
+
+.plainLink {
+  color: inherit;
+  text-decoration: none;
+}
+
+.chipButton {
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+}
+
+.chipButton[aria-pressed="true"] > span {
+  outline: 2px solid var(--blue);
+  outline-offset: 1px;
+}
+
+.pickedPlayer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid var(--line-strong);
+  border-radius: 10px;
+  background: var(--panel-strong);
+}
+
+.pickedPlayer .personText {
+  flex: 1;
+}
+
+.groupRoomTag {
+  margin: 0;
+  padding: 8px 14px;
+  border: 1px solid var(--blue);
+  border-radius: 999px;
+  color: var(--text);
+  font-size: 15px;
+  text-align: center;
+}
+
+.hostNotice {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  z-index: 40;
+  max-width: min(640px, calc(100vw - 32px));
+  margin: 0;
+  padding: 12px 18px;
+  border: 1px solid var(--blue);
+  border-radius: 10px;
+  background: var(--bg-raised);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+  font-size: 16px;
+  transform: translateX(-50%);
+}
+/* Main menu (Nov 11, 2026): Social, Play and Customization as three screens swiped between.
+   The sideways scroller snaps to a whole screen and each screen scrolls downward on its own, so
+   the page itself never scrolls and a swipe can't be mistaken for one. From 1024px the three sit
+   side by side as columns and nothing swipes. */
+
+.menu {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  height: 100vh;
+  height: 100dvh; /* the part of the screen a phone's address bar leaves */
+}
+
+.menuTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 480px;
+  min-height: 56px;
+  margin: 0 auto;
+  padding: 10px 16px 6px;
+}
+
+.menuMe {
+  display: flex;
+  border-radius: 50%;
+}
+
+.menuTrack {
+  display: flex;
+  min-height: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain; /* a swipe at either end is not the browser's Back */
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.menuTrack::-webkit-scrollbar,
+.menuScreen::-webkit-scrollbar {
+  display: none;
+}
+
+.menuScreen {
+  flex: 0 0 100%;
+  min-width: 0;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  scroll-snap-align: start;
+  scroll-snap-stop: always; /* a hard flick moves one screen, never two */
+  scrollbar-width: none; /* a bar here would show as a sliver at the edge of the next screen */
+}
+
+.menuColumn {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-content: start;
+  gap: 14px;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 6px 16px 24px;
+}
+
+.menuHead,
+.menuHero {
+  display: grid;
+  gap: 8px;
+  padding: 18px 4px 4px;
+}
+
+.menuHero .heroTitle {
+  font-size: 32px;
+}
+
+/* A list of places to go: one panel, a line between rows. */
+.menuRows {
+  display: grid;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+}
+
+.menuRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 64px;
+  padding: 10px 10px 10px 12px;
+  color: var(--text);
+  text-decoration: none;
+  transition: background 120ms;
+}
+
+.menuRow + .menuRow {
+  border-top: 1px solid var(--line);
+}
+
+.menuRow:hover {
+  background: var(--panel-strong);
+}
+
+.menuRow:focus-visible {
+  outline-offset: -2px; /* inside the row: the panel clips anything outside it */
+}
+
+.menuLead {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--blue-dim);
+  color: var(--sky);
+}
+
+.menuTag {
+  flex: none;
+  width: 52px;
+  padding: 5px 0 5px 0.12em; /* the left pad evens out the letter-spacing after the last letter */
+  border-radius: 6px;
+  background: var(--blue);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-align: center;
+}
+
+.menuIcon {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.menuRowText {
+  flex: 1;
+  display: grid;
+  justify-items: start;
+  gap: 2px;
+  min-width: 0;
+}
+
+.menuRowTitle {
+  max-width: 100%;
+  overflow: hidden;
+  font-size: 15px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.menuRowDetail {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.menuClock {
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.menuChevron {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: var(--muted);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.menuLook {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  padding: 18px 14px 14px;
+}
+
+.menuLookAvatar {
+  display: block;
+  border-radius: 50%;
+}
+
+.menuLookStats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  width: 100%;
+  margin-top: 6px;
+}
+
+.menuStat {
+  display: grid;
+  align-content: start;
+  gap: 6px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--bg-raised);
+}
+
+.menuStatValue {
+  font-family: var(--font-mono);
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.menuGuest {
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  padding: 22px 16px 16px;
+  text-align: center;
+}
+
+.menuGuestText {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+/* The sign-in box, pointed out after "Sign in" on another screen brings it into view. */
+.menuNudge {
+  border-radius: 10px;
+  animation: menuNudge 1.6s ease-out;
+}
+
+@keyframes menuNudge {
+  0%,
+  55% {
+    box-shadow: 0 0 0 3px var(--blue);
+  }
+
+  100% {
+    box-shadow: 0 0 0 3px transparent;
+  }
+}
+
+.menuFoot {
+  padding: 8px 12px calc(10px + env(safe-area-inset-bottom, 0px));
+}
+
+.menuTabs {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(var(--tabs, 3), minmax(0, 1fr)); /* the Social screen's two tabs set --tabs */
+  max-width: 448px;
+  margin: 0 auto;
+  padding: 4px;
+  border: 1px solid var(--line-strong);
+  border-radius: 16px;
+  background: var(--bg-raised);
+}
+
+/* Sits behind the screen in view and moves with the swipe: --at runs 0 to 2 across the screens,
+   and one step is the marker's own width. */
+.menuTabMarker {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  left: 4px;
+  width: calc((100% - 8px) / var(--tabs, 3)); /* the Social screen's two tabs set --tabs */
+  border: 1px solid var(--blue);
+  border-radius: 12px;
+  background: var(--blue-dim);
+  pointer-events: none;
+  transform: translateX(calc(var(--at, 1) * 100%));
+}
+
+.menuTab {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 2px;
+  min-height: 52px;
+  padding: 6px 4px;
+  border: 0;
+  border-radius: 12px;
+  background: none;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none; /* off the menu the tabs are links */
+  transition: color 120ms;
+}
+
+.menuTabOn {
+  color: var(--text);
+}
+
+.menuTabIcon {
+  position: relative;
+  display: grid;
+  transition:
+    color 120ms,
+    filter 120ms;
+}
+
+/* The tab you're on has its icon lit. */
+.menuTabOn .menuTabIcon {
+  color: var(--sky);
+  filter: drop-shadow(0 0 6px rgb(124 196 255 / 70%));
+}
+
+.menuDot {
+  position: absolute;
+  top: -2px;
+  right: -7px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--blue);
+  box-shadow: 0 0 0 2px var(--bg-raised);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menuNudge {
+    animation: none;
+    box-shadow: 0 0 0 3px var(--blue);
+  }
+}
+
+@media (min-width: 1024px) {
+  .menu {
+    display: block;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .menuTop {
+    max-width: 1180px;
+    padding: 20px 28px 0;
+  }
+
+  .menuTrack {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: start;
+    gap: 12px;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 12px 32px;
+    overflow: visible;
+  }
+
+  .menuScreen {
+    overflow: visible;
+  }
+
+  .menuColumn {
+    max-width: none;
+  }
+
+  .menuFoot {
+    display: none;
+  }
+
+  /* Side by side the menu needs no bar; every other page keeps it. */
+  .menuFootFixed {
+    display: block;
+  }
+}
+
+/* Groups (Nov 11, 2026): the icon, the page's header, the invite panel and the owner's
+   customizing tools. */
+
+/* A shield (Ryan's sketch): whatever fills it, a colour and its drawing or an uploaded picture,
+   is cut to this outline. The outline is a mask, so it scales with the icon. */
+.groupIcon {
+  --shield: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M50 2C63 8 79 11 94 11V50C94 75 75 91 50 98 25 91 6 75 6 50V11C21 11 37 8 50 2Z'/%3E%3C/svg%3E");
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  object-fit: cover; /* an uploaded picture; the server already crops it square */
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  -webkit-mask: var(--shield) center / 100% 100% no-repeat;
+  mask: var(--shield) center / 100% 100% no-repeat;
+}
+
+/* The drawing or initials sit a little high: a shield's weight is in its top half. */
+.groupIconMark {
+  display: grid;
+  place-items: center;
+  transform: translateY(-5%);
+}
+
+.groupIcon svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* The fuller drawings: a thinner line, so their detail holds at small sizes. */
+.groupIcon svg.groupIconFine {
+  stroke-width: 1.35;
+}
+
+.groupHead {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.groupHeadText {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.groupHeadText .heading {
+  overflow-wrap: anywhere;
+}
+
+.groupBio {
+  margin: 12px 0 0;
+  overflow-wrap: anywhere;
+}
+
+.groupRowMain {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  color: inherit;
+  text-decoration: none;
+}
+
+.reportToggle {
+  margin-top: 12px;
+}
+
+.reportRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+/* The invite link: long, so small and in one line that scrolls rather than wraps. */
+.linkField {
+  font-size: 13px;
+  text-overflow: ellipsis;
+}
+
+.inviteActions {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr); /* two or three buttons, always the same width */
+  gap: 8px;
+}
+
+.inviteQr {
+  display: block;
+  margin: 12px auto 0;
+}
+
+.inviteActions + .settingsHint,
+.inviteQr + .settingsHint {
+  margin-top: 10px;
+}
+
+/* A button that reads as a link inside a sentence. */
+.textButton {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--sky);
+  cursor: pointer;
+  font: inherit;
+  text-decoration: underline;
+}
+
+.iconEditor {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.iconEditorText {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+
+.iconChoices {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(52px, 1fr));
+  gap: 6px;
+  margin-top: 14px;
+}
+
+.iconChoice {
+  display: grid;
+  place-items: center;
+  padding: 5px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background: none;
+  cursor: pointer;
+}
+
+.iconChoice:hover:not(:disabled) {
+  border-color: var(--line-strong);
+}
+
+.iconChoiceOn {
+  border-color: var(--blue);
+  background: var(--blue-dim);
+}
+
+.swatches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 12px;
+}
+
+.colorPick {
+  width: 28px; /* eight fit across a phone */
+  height: 28px;
+  padding: 0;
+  border: 2px solid var(--panel);
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 0 1px var(--line-strong);
+}
+
+.colorPickOn {
+  box-shadow: 0 0 0 2px var(--blue);
+}
+
+.iconChoice:disabled,
+.colorPick:disabled {
+  cursor: progress;
+}
+
+.reviewImage {
+  display: block;
+  width: 128px;
+  height: 128px;
+  margin: 0 0 8px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+}
+
+/* The navigation bar off the menu (Nov 11, 2026): pinned to the foot of every page but a table,
+   over a fade so whatever scrolls under it stays readable. Only the bar itself takes taps. */
+.menuFootFixed {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 20;
+  background: linear-gradient(to top, var(--bg) 62%, transparent);
+  pointer-events: none;
+}
+
+.menuFootFixed .menuTabs {
+  pointer-events: auto;
+}
+
+/* Room at the foot of a page for the bar that sits over it. */
+.withMenuBar {
+  padding-bottom: calc(84px + env(safe-area-inset-bottom, 0px));
+}
+
+.withMenuBar :global(.loader) {
+  min-height: calc(100vh - 100px);
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* The Social screen (Ryan's sketch, Nov 11, 2026): you at the top, then Groups and Friends as
+   two tabs. The screen itself doesn't scroll; the two lists under the tabs do, each on its own,
+   so your card and the tabs stay where they are. */
+.socialHead {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 14px;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 6px 16px 6px;
+}
+
+/* A tab bar that stays at the top of its screen once the page scrolls past it. */
+.stickyTabs {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 8px 16px;
+  background: rgb(0 0 0 / 78%);
+  backdrop-filter: blur(10px);
+}
+
+.socialMe {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.socialMeAvatar {
+  flex: none;
+  display: block;
+  border-radius: 50%;
+}
+
+.socialMeText {
+  display: grid;
+  justify-items: start;
+  gap: 8px;
+  min-width: 0;
+}
+
+.socialMeLine {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+  font-size: 13px;
+}
+
+/* Groups | Friends: the menu's tab bar at half the height, icon beside the word. */
+.subTabs {
+  max-width: none;
+  margin: 0;
+}
+
+.subTab {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 40px;
+  font-size: 14px;
+}
+
+/* Two lists side by side that slide like the menu's screens. Each is as tall as its own
+   content, and the scroller is kept as tall as the one in view (useFitHeight). */
+.subTrack {
+  display: flex;
+  align-items: flex-start;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  transition: height 180ms ease;
+}
+
+.subScreen {
+  flex: 0 0 100%;
+  min-width: 0;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+.subTrack::-webkit-scrollbar,
+.subScreen::-webkit-scrollbar {
+  display: none;
+}
+
+.subScreen .menuColumn {
+  padding-top: 2px;
+}
+
+/* A group in a list: its prestige first, then how many are in it. */
+.groupLine {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px 10px;
+}
+
+.groupPrestige {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 4px;
+  color: var(--sky);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.groupPrestige svg {
+  width: 11px;
+  height: 11px;
+  fill: currentColor;
+}
+
+.createGroup {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 64px;
+  padding: 10px 12px;
+  border: 1px dashed var(--line-strong);
+  border-radius: 10px;
+  background: none;
+  color: var(--text);
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+  transition:
+    border-color 120ms,
+    background 120ms;
+}
+
+.createGroup:hover:not(:disabled) {
+  border-color: var(--blue);
+  background: var(--blue-dim);
+}
+
+.createGroup:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.createGroupPlus {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: var(--blue-dim);
+  color: var(--sky);
+}
+
+/* A dialog over the page (starting a group). It scrolls inside itself; its foot, with the price
+   and the button, stays in view. */
+.dialog {
+  width: min(440px, calc(100vw - 24px));
+  max-height: 92vh;
+  max-height: min(92dvh, 780px);
+  padding: 0;
+  overflow: hidden auto;
+  border: 1px solid var(--line-strong);
+  border-radius: 14px;
+  background: var(--bg-raised);
+  color: var(--text);
+}
+
+.dialog::backdrop {
+  background: rgb(0 0 0 / 72%);
+}
+
+.dialogBody {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 14px;
+  padding: 16px 16px 0;
+}
+
+.dialogBody .field {
+  margin-bottom: 0;
+}
+
+.dialogName {
+  font-size: 18px;
+  overflow-wrap: anywhere;
+}
+
+.dialogFoot {
+  position: sticky;
+  bottom: 0;
+  display: grid;
+  gap: 10px;
+  margin: 0 -16px;
+  padding: 12px 16px 16px;
+  border-top: 1px solid var(--line);
+  background: var(--bg-raised);
+}
+
+/* The global leaderboard (Nov 12, 2026): a podium card at the top of the Social screen, and the
+   whole board at /leaderboard. */
+
+.boardCard {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 10px;
+  padding-bottom: 0;
+}
+
+.boardHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.boardHead .panelTitle {
+  margin: 0;
+}
+
+/* The switch in the card's corner: the same bar as Groups | Friends, smaller. */
+.boardTabsSmall {
+  flex: none;
+  width: 176px;
+  padding: 3px;
+  border-radius: 12px;
+}
+
+.boardTabsSmall .menuTabMarker {
+  top: 3px;
+  bottom: 3px;
+  left: 3px;
+  width: calc((100% - 6px) / var(--tabs, 2));
+  border-radius: 9px;
+}
+
+.boardTabsSmall .subTab {
+  min-height: 28px;
+  padding: 2px 4px;
+  font-size: 12px;
+}
+
+.podiumTrack {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.podiumTrack::-webkit-scrollbar {
+  display: none;
+}
+
+.boardScreen {
+  flex: 0 0 100%;
+  min-width: 0;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+/* First in the middle and a step up; second and third either side. */
+.podium {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: end;
+  gap: 6px;
+  min-height: 132px;
+}
+
+.podiumLoading,
+.podiumEmpty {
+  display: grid;
+  place-items: center;
+  min-height: 132px;
+  text-align: center;
+}
+
+.podiumSpot {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  min-width: 0;
+  padding: 6px 2px;
+  border-radius: 10px;
+  color: var(--text);
+  text-decoration: none;
+}
+
+a.podiumSpot:hover {
+  background: var(--panel-strong);
+}
+
+.podiumFirst {
+  padding-bottom: 16px;
+}
+
+.podiumPlace {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.podiumFirst .podiumPlace {
+  border-color: var(--blue);
+  background: var(--blue);
+  color: #fff;
+}
+
+/* Up to two lines, and always the height of two, so the three pictures stay level whatever
+   the names' lengths. */
+.podiumName {
+  display: -webkit-box;
+  max-width: 100%;
+  min-height: 2.4em;
+  overflow: hidden;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+  overflow-wrap: anywhere;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+
+.podiumOpen {
+  color: var(--muted);
+}
+
+.podiumOpen .podiumName {
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.podiumBlank {
+  width: 48px;
+  height: 48px;
+  border: 1px dashed var(--line-strong);
+  border-radius: 12px;
+}
+
+/* Where you stand, and the way to the whole board: the card's bottom edge, all of it a link. */
+.boardFoot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 0 -14px;
+  padding: 10px 10px 10px 14px;
+  border-top: 1px solid var(--line);
+  border-radius: 0 0 10px 10px;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.boardFoot:hover {
+  background: var(--panel-strong);
+}
+
+.boardAll {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 2px;
+  color: var(--sky);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* The whole board. */
+.boardPages {
+  margin: 0 -16px; /* each page brings its own side padding, so a row can't touch the edge mid-slide */
+}
+
+.boardPage {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 10px;
+  padding: 0 16px;
+}
+
+.narrowPage > .stickyTabs {
+  max-width: none;
+  margin: 0 -16px;
+  width: auto;
+}
+
+.rankRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 4px 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--text);
+  text-decoration: none;
+}
+
+.rankRow:last-child {
+  border-bottom: 0;
+}
+
+.rankRow .scoreRank {
+  flex: none;
+  width: 26px;
+  text-align: center;
+}
+
+.boardTop {
+  color: var(--sky);
+  font-weight: 700;
+}
+
+/* The host-group invite (Nov 17, 2026). On the host screen it is one small round button, in the
+   lobby and on the final scores. The host's groups stay hidden until it is pressed; then they
+   drop down as a short menu, and picking one sends the invite. Beside the button, once an invite
+   has gone out, is how many have joined. */
+
+.hostInvite {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 6px 10px;
+  width: fit-content;
+  max-width: 100%;
+  margin: 14px auto;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* In the settings drawer the menu opens in the page, so the drawer's own scrolling can't clip it. */
+.hostInviteCompact {
+  justify-content: flex-start;
+  width: auto;
+  margin: 0;
+}
+
+.hostInviteToggle {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  background: none;
+  color: var(--sky);
+  cursor: pointer;
+  transition:
+    border-color 120ms,
+    background 120ms;
+}
+
+.hostInviteToggle:hover,
+.hostInviteToggle[aria-expanded="true"] {
+  border-color: var(--blue);
+  background: var(--blue-dim);
+}
+
+.hostInviteToggle .menuIcon {
+  width: 18px;
+  height: 18px;
+}
+
+.hostInviteTally strong {
+  color: var(--sky);
+  font-family: var(--font-mono);
+}
+
+.hostInviteMenu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  z-index: 30;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 6px;
+  width: min(300px, calc(100vw - 32px));
+  padding: 10px;
+  border: 1px solid var(--line-strong);
+  border-radius: 12px;
+  background: var(--bg-raised);
+  box-shadow: 0 16px 40px rgb(0 0 0 / 60%);
+  text-align: left; /* the host lobby centres everything else */
+  transform: translateX(-50%);
+}
+
+.hostInviteCompact .hostInviteMenu {
+  position: static;
+  flex-basis: 100%;
+  width: auto;
+  box-shadow: none;
+  transform: none;
+}
+
+.hostInviteLead {
+  margin: 2px 2px 0;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hostInviteNote {
+  margin: 2px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.hostGroupChoice {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  min-height: 46px;
+  padding: 6px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: none;
+  color: var(--text);
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+  transition:
+    border-color 120ms,
+    background 120ms;
+}
+
+.hostGroupChoice:hover:not(:disabled),
+.hostGroupChoice:focus-visible {
+  border-color: var(--blue);
+  background: var(--blue-dim);
+}
+
+.hostGroupChoice:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.hostGroupText {
+  display: grid;
+  gap: 1px;
+  min-width: 0;
+  font-size: 14px;
+}
+
+.hostGroupText strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hostGroupText span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* The sign-in box inside the host screen's dialog: the dialog is the frame. */
+.hostSignIn {
+  padding-bottom: 16px;
+}
+
+/* On a player's phone: the invite as a card. Floating, it rises from the foot of the screen like
+   a notification and stays until it's answered. It sits at the foot, under the thumb and clear of
+   the timer and the Game / Locker / Shop tabs, and the page gets room to scroll out from under it. */
+
+.invitePop {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid var(--blue);
+  border-radius: 14px;
+  background: linear-gradient(180deg, #0d1a33, var(--bg-raised) 70%);
+}
+
+.invitePopFloating {
+  position: fixed;
+  bottom: calc(10px + env(safe-area-inset-bottom));
+  left: 50%;
+  z-index: 60;
+  width: min(448px, calc(100vw - 16px));
+  max-height: calc(100dvh - 24px);
+  overflow-y: auto;
+  box-shadow:
+    0 -12px 48px rgb(0 0 0 / 70%),
+    0 0 0 1px rgb(61 139 255 / 25%);
+  transform: translateX(-50%);
+  animation: inviteRise 320ms cubic-bezier(0.2, 0.9, 0.3, 1.1);
+}
+
+@keyframes inviteRise {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 110%);
+  }
+}
+
+/* The phone's page while an invite floats over its foot: room to scroll the last panel clear. */
+.underInvite {
+  padding-bottom: 220px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .invitePopFloating {
+    animation: none;
+  }
+}
+
+.invitePopHead {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.invitePopText {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+
+.invitePopLabel {
+  color: var(--sky);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+
+.invitePopName {
+  font-size: 20px;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.invitePopNote {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* The players page (/admin/players, Nov 17, 2026): every account in one table. It is the app's
+   one spreadsheet, so it gets a wide frame. On a phone the table scrolls sideways inside its
+   panel, with each player's name held at the left edge. */
+
+.playersPage {
+  max-width: 1480px;
+  margin: 0 auto;
+  padding: 12px 16px 32px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 14px;
+}
+
+.playersHead {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 10px 16px;
+}
+
+.playersActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.playersActions a {
+  text-decoration: none;
+}
+
+.playersTiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(132px, 1fr));
+  gap: 8px;
+}
+
+.playersTools {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.playersFilters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+@media (min-width: 760px) {
+  .playersTools {
+    grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
+    align-items: center;
+  }
+
+  .playersFilters {
+    justify-content: flex-end;
+  }
+}
+
+.playersScroll {
+  overflow-x: auto;
+}
+
+.playersTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.playersTable th,
+.playersTable td {
+  padding: 7px 8px;
+  border-bottom: 1px solid var(--line);
+  font-weight: 400;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.playersTable thead th {
+  padding: 0;
+}
+
+/* The first column stays put while the rest scrolls under it. */
+.playersTable th:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  background: var(--panel);
+}
+
+.playersTable tbody tr:hover > * {
+  background: var(--panel-strong);
+}
+
+.sortHead {
+  width: 100%;
+  padding: 8px;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  cursor: pointer;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-align: inherit;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.sortHead:hover,
+.playersTable th[aria-sort="ascending"] .sortHead,
+.playersTable th[aria-sort="descending"] .sortHead {
+  color: var(--text);
+}
+
+.playersTable .playerNum {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.playerCell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 170px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.playerCellText {
+  display: grid;
+  gap: 1px;
+  min-width: 0;
+}
+
+.playerCellText strong {
+  font-weight: 600;
+}
+
+.playerCellText span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* On a phone the held name column is kept narrow, so the numbers beside it have room. */
+@media (max-width: 600px) {
+  .playerCell {
+    min-width: 0;
+  }
+
+  .playerCellText {
+    width: 118px; /* a set width: left to shrink, the clipped name would collapse to nothing */
+  }
+
+  .playerCellText strong,
+  .playerCellText span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.playerTag {
+  display: inline-block;
+  margin: 4px 0 0 40px;
+  padding: 1px 6px;
+  border: 1px solid var(--warn);
+  border-radius: 4px;
+  color: var(--warn);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.playerGroups {
+  max-width: 180px;
+  overflow: hidden;
+  color: var(--muted);
+  text-overflow: ellipsis;
+}
+
+.playerDate {
+  color: var(--muted);
+}
+
+/* Who can see the players page: the admins' list of teammates. */
+.teamList,
+.teamAdd {
+  max-width: 620px;
+}
+
+.teamList {
+  display: grid;
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.teamList li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 12px;
+  min-height: 42px;
+  padding: 4px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 13px;
+}
+
+.teamEmail {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--font-mono);
+  overflow-wrap: anywhere;
+}
+
+.teamAdd {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.teamAdd .input {
+  flex: 1;
+  min-width: 0;
+}
+
+/* The overview page (/admin/overview, Nov 17, 2026): the app as an organizational chart, with its
+   plans, services and live status. It shares the players page's wide frame. Every class here
+   starts with "ov". */
+
+.ovNav {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  gap: 6px;
+  margin: 0 -16px;
+  padding: 8px 16px;
+  overflow-x: auto;
+  border-bottom: 1px solid var(--line);
+  background: var(--bg);
+  scrollbar-width: none;
+}
+
+.ovNav a {
+  flex: none;
+  padding: 6px 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 13px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.ovNav a:hover,
+.ovNav a:focus-visible {
+  border-color: var(--blue);
+  color: var(--text);
+}
+
+.ovSection {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+  scroll-margin-top: 56px; /* clear of the sticky row of links */
+}
+
+.ovSection .panelTitle {
+  margin: 8px 0 0;
+}
+
+.ovTitle {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* What is switched on. One that isn't set the way the live site should be is outlined. */
+.ovSwitches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ovSwitch {
+  display: grid;
+  gap: 1px;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+.ovSwitch span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.ovSwitchOn span {
+  color: var(--sky);
+}
+
+.ovSwitchOdd {
+  border-color: var(--warn);
+}
+
+.ovSwitchOdd span {
+  color: var(--warn);
+}
+
+/* The structure chart: one band per layer, its parts as cards, and between two bands the thing
+   that joins them. */
+.ovLayers {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ovLayers > li + li {
+  margin-top: 10px;
+}
+
+.ovLayer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid var(--line-strong);
+  border-left: 3px solid var(--blue);
+  border-radius: 10px;
+  background: var(--bg-raised);
+}
+
+@media (min-width: 900px) {
+  .ovLayer {
+    grid-template-columns: 200px minmax(0, 1fr);
+    align-items: start;
+  }
+}
+
+.ovLayerHead h3 {
+  margin: 0;
+  color: var(--sky);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ovLayerHead p {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.ovParts {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ovPart {
+  display: grid;
+  align-content: start;
+  gap: 4px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  font-size: 13px;
+}
+
+.ovPart strong {
+  font-size: 14px;
+}
+
+.ovPart span {
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.ovPart code,
+.ovTable code {
+  color: var(--sky);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.ovLink {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 10px 0 0;
+  padding-left: 14px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.ovLink span {
+  color: var(--blue);
+  font-size: 16px;
+}
+
+/* Status and access chips, and the small grey tag (a milestone, a date, a category). */
+.ovStatus {
+  display: inline-block;
+  flex: none;
+  padding: 2px 8px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.ovStatus_done {
+  border-color: transparent;
+  background: var(--sky-dim);
+  color: var(--sky);
+}
+
+.ovStatus_in_progress,
+.ovAccess_team {
+  border-color: var(--blue);
+  color: var(--text);
+}
+
+.ovStatus_ongoing,
+.ovAccess_admin {
+  border-color: transparent;
+  background: var(--blue-dim);
+  color: var(--text);
+}
+
+.ovStatus_not_started {
+  border-style: dashed;
+}
+
+.ovStatus_untracked {
+  border-color: var(--warn);
+  color: var(--warn);
+}
+
+.ovAccess_signed_in {
+  color: var(--text);
+}
+
+.ovTag {
+  flex: none;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: var(--panel-strong);
+  color: var(--muted);
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+/* Rows of goals, milestones and releases. */
+.ovGoals,
+.ovMilestones,
+.ovTimeline,
+.ovPrinciples {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ovGoal,
+.ovTimeline li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.ovGoal:last-child,
+.ovTimeline li:last-child {
+  border-bottom: 0;
+}
+
+.ovGoal .ovStatus {
+  width: 96px;
+  margin-top: 1px;
+  text-align: center;
+}
+
+.ovGoalUnder {
+  padding-left: 22px;
+}
+
+.ovGoalText {
+  display: grid;
+  flex: 1;
+  gap: 2px;
+  min-width: 0;
+  font-size: 14px;
+}
+
+.ovGoalText span {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.ovPrinciples {
+  gap: 4px;
+}
+
+.ovPrinciples li {
+  padding: 8px 12px;
+  border-left: 3px solid var(--blue);
+  background: var(--bg-raised);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.ovAreas {
+  display: grid;
+  gap: 6px;
+}
+
+.ovArea {
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.ovArea summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.ovArea[open] summary {
+  border-bottom: 1px solid var(--line);
+}
+
+/* Services, as cards. */
+.ovServices {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ovService {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--bg-raised);
+  font-size: 13px;
+}
+
+.ovServiceHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+}
+
+.ovService p {
+  margin: 0;
+  line-height: 1.45;
+}
+
+.ovService dl {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr);
+  gap: 4px 8px;
+  margin: 0;
+  color: var(--muted);
+}
+
+.ovService dt {
+  padding-top: 2px;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.ovService dd {
+  margin: 0;
+  line-height: 1.45;
+}
+
+/* Reference tables: pages, modules, tables, tools, costs. */
+.ovScroll {
+  overflow-x: auto;
+}
+
+.ovTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.ovTable th,
+.ovTable td {
+  padding: 7px 14px 7px 0;
+  border-bottom: 1px solid var(--line);
+  font-weight: 400;
+  text-align: left;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.ovTable thead th {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.ovTable tbody th {
+  font-weight: 600;
+}
+
+.ovTable .ovNum {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.ovTable .ovWrap {
+  min-width: 240px;
+  color: var(--muted);
+  line-height: 1.45;
+  white-space: normal;
+}

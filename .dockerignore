@@ -1,0 +1,7 @@
+**/__pycache__
+**/node_modules
+.claude
+.env
+.git
+.pytest_cache
+client/dist

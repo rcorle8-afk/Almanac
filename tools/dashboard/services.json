@@ -1,0 +1,22 @@
+{
+  "_about": "The outside services Almanac uses and what each costs. Prices are published list prices, checked on the date given; update them when a bill or a price page says otherwise. refresh.py adds the usage it can count.",
+  "prices_checked": "2026-11-10",
+  "services": [
+    {"service": "Fly.io", "category": "Hosting", "role": "Runs the game server, holds the database volume and the secrets.", "setup": "Personal organization, pay as you go. One shared-cpu-1x machine with 512 MB in Chicago (ord) that stops when idle; a 1 GB volume at /data; volume snapshots before each deploy.", "since": "2026-11-02", "pricing": "Billed by the second while running. Monthly bills under $5 are waived for personal organizations.", "link": "https://docs.fly.io/about/pricing"},
+    {"service": "Google Identity Services", "category": "Sign-in", "role": "Sign in with Google for accounts; the server checks each ID token.", "setup": "One OAuth client (web application) for almanac-game.fly.dev and localhost. The client ID is public; the client secret is never used by the app.", "since": "2026-11-03", "pricing": "Free.", "link": "https://developers.google.com/identity/gsi/web"},
+    {"service": "Anthropic Claude API", "category": "Question research", "role": "The offline question verifier, run from your machine. The game server never calls it.", "setup": "Your API key, used only in your terminal. Models: Haiku for bulk checks, Sonnet as the default, Opus once.", "since": "2026-11-02", "pricing": "Per token and per web search; see the model rates under Financials.", "link": "https://www.anthropic.com/pricing"},
+    {"service": "Browser push services", "category": "Notifications", "role": "Deliver phone and desktop notifications (Apple, Google and Mozilla run them for their browsers).", "setup": "A VAPID key pair stored as Fly secrets. Only the server's background sender talks to them.", "since": "2026-11-10", "pricing": "Free.", "link": "https://datatracker.ietf.org/doc/html/rfc8292"},
+    {"service": "Docker Hub, npm and PyPI", "category": "Build", "role": "Base images (node:22-slim, python:3.12-slim) and packages, fetched only when Fly builds a deploy.", "setup": "No account needed.", "since": "2026-11-02", "pricing": "Free.", "link": ""},
+    {"service": "Claude Code", "category": "Development", "role": "Builds and deploys the project to the spec in CLAUDE.md.", "setup": "Runs on your machine against the OneDrive project folder.", "since": "2026-11-02", "pricing": "Covered by your Claude plan.", "link": ""}
+  ],
+  "costs": [
+    {"item": "Game server machine", "service": "Fly.io", "basis": "shared-cpu-1x with 512 MB, $3.69 a month if it never stopped (Fly's listed price for Ashburn and Secaucus; Chicago may differ slightly). It stops when idle, so the real charge is a fraction of this.", "monthly_max_usd": 3.69},
+    {"item": "Server disk while stopped", "service": "Fly.io", "basis": "$0.15 per GB-month of root file system, about 0.06 GB for this image.", "monthly_max_usd": 0.01},
+    {"item": "Database volume", "service": "Fly.io", "basis": "1 GB at $0.15 per GB-month, charged whether or not the machine runs.", "monthly_max_usd": 0.15},
+    {"item": "Volume snapshots", "service": "Fly.io", "basis": "$0.08 per GB-month after the first 10 GB, which are free. The database is far under 10 GB.", "monthly_max_usd": 0.0},
+    {"item": "Outbound data", "service": "Fly.io", "basis": "$0.02 per GB in North America. A 100-player, 7-round game sends about 0.1 GB.", "monthly_max_usd": 0.02},
+    {"item": "Google sign-in", "service": "Google Identity Services", "basis": "No charge.", "monthly_max_usd": 0.0},
+    {"item": "Phone notifications", "service": "Browser push services", "basis": "No charge.", "monthly_max_usd": 0.0}
+  ],
+  "fly_waiver_usd": 5.0
+}

@@ -1,0 +1,27 @@
+app = "almanac-game"
+primary_region = "ord"
+
+[build]
+
+[env]
+  PORT = "8000"
+  LOG_LEVEL = "INFO"
+  DATABASE_PATH = "/data/almanac.db"
+  # The OAuth client ID from Google Cloud. A public identifier, not a secret. Empty hides sign-in.
+  GOOGLE_CLIENT_ID = "313359377426-te7gffprmoq71t3aq3s0n3u0audprq66.apps.googleusercontent.com"
+
+[mounts]
+  source = "almanac_data"
+  destination = "/data"
+
+[http_service]
+  internal_port = 8000
+  force_https = true
+  # Open sockets keep the machine up during a game; idle machines stop to save cost.
+  auto_stop_machines = "stop"
+  auto_start_machines = true
+  min_machines_running = 0
+
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "512mb"

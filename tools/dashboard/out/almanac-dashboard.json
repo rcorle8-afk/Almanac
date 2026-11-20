@@ -1,0 +1,1488 @@
+{
+ "refreshed_at": "2026-11-19T19:07:10+00:00",
+ "principles": [
+  {
+   "order": 0,
+   "principle": "The Program is Social, not the Game"
+  },
+  {
+   "order": 1,
+   "principle": "The Game is the Core Product, not the Business"
+  }
+ ],
+ "goals": [
+  {
+   "section": "Real Life Integration",
+   "goal": "Finances, information, goals dashboard",
+   "depth": 1,
+   "parent": null,
+   "order": 0,
+   "status": "done",
+   "note": "This dashboard, refreshed by tools/dashboard/refresh.py.",
+   "milestone": "Tools",
+   "since": "2026-11-10"
+  },
+  {
+   "section": "Real Life Integration",
+   "goal": "Always playtest",
+   "depth": 1,
+   "parent": null,
+   "order": 1,
+   "status": "ongoing",
+   "note": "Bots, the demo game, and local playtest and rehearsal servers. A full rehearsal game ran before the Nov 10 deploy.",
+   "milestone": "M3",
+   "since": ""
+  },
+  {
+   "section": "Real Life Integration",
+   "goal": "Reasonably maintainable",
+   "depth": 1,
+   "parent": null,
+   "order": 2,
+   "status": "ongoing",
+   "note": "One spec (CLAUDE.md) kept current, and an automated test suite that runs before every deploy.",
+   "milestone": "Tools",
+   "since": ""
+  },
+  {
+   "section": "Real Life Integration",
+   "goal": "Appropriate environments",
+   "depth": 1,
+   "parent": null,
+   "order": 3,
+   "status": "in_progress",
+   "note": "Local dev, playtest and rehearsal servers, and production on Fly. No staging site and no version control yet.",
+   "milestone": "Tools",
+   "since": ""
+  },
+  {
+   "section": "Real Life Integration",
+   "goal": "Don't overdo it",
+   "depth": 2,
+   "parent": "Appropriate environments",
+   "order": 4,
+   "status": "ongoing",
+   "note": "One machine, SQLite, full snapshots instead of diffs; no new services without a reason.",
+   "milestone": "Tools",
+   "since": ""
+  },
+  {
+   "section": "Real Life Integration",
+   "goal": "Visibility: Google page",
+   "depth": 1,
+   "parent": null,
+   "order": 5,
+   "status": "untracked",
+   "note": "Added to the log; not tracked yet.",
+   "milestone": "",
+   "since": ""
+  },
+  {
+   "section": "Gameplay",
+   "goal": "Leaderboard screen five seconds",
+   "depth": 1,
+   "parent": null,
+   "order": 6,
+   "status": "not_started",
+   "note": "The scores screen still defaults to 10 seconds. A host can set 5 in the settings drawer.",
+   "milestone": "M3",
+   "since": ""
+  },
+  {
+   "section": "Gameplay",
+   "goal": "Join app option when waiting for game to start",
+   "depth": 1,
+   "parent": null,
+   "order": 7,
+   "status": "done",
+   "note": "Phones have Game, Locker and Shop views in every phase.",
+   "milestone": "M2.6",
+   "since": "2026-11-03"
+  },
+  {
+   "section": "Gameplay",
+   "goal": "Still in game lobby, and will return to the started game once game is started",
+   "depth": 2,
+   "parent": "Join app option when waiting for game to start",
+   "order": 8,
+   "status": "done",
+   "note": "The host setting 'recall on start' brings every phone back to the game.",
+   "milestone": "M2.6",
+   "since": "2026-11-03"
+  },
+  {
+   "section": "Gameplay",
+   "goal": "Better questions",
+   "depth": 1,
+   "parent": null,
+   "order": 9,
+   "status": "in_progress",
+   "note": "365 playable questions after the Nov 11 verifier run, case questions for the club, and the automated verifier.",
+   "milestone": "M3",
+   "since": ""
+  },
+  {
+   "section": "Gameplay",
+   "goal": "Figure out what constitutes a good question",
+   "depth": 2,
+   "parent": "Better questions",
+   "order": 10,
+   "status": "in_progress",
+   "note": "Style rules written into the spec (arbitrary beats geography, stable answers, named years). Not yet tested against playtest results.",
+   "milestone": "M3",
+   "since": ""
+  },
+  {
+   "section": "Gameplay",
+   "goal": "Multiple Progression",
+   "depth": 1,
+   "parent": null,
+   "order": 11,
+   "status": "done",
+   "note": "Coins, XP and levels, prestige, achievements and Academia.",
+   "milestone": "M4",
+   "since": "2026-11-04"
+  },
+  {
+   "section": "Gameplay",
+   "goal": "Redesign prestige",
+   "depth": 1,
+   "parent": null,
+   "order": 12,
+   "status": "done",
+   "note": "Prestige now comes from wins, podiums and Best Quotes.",
+   "milestone": "M4",
+   "since": "2026-11-04"
+  },
+  {
+   "section": "Visual",
+   "goal": "Player banner at top of screen",
+   "depth": 1,
+   "parent": null,
+   "order": 13,
+   "status": "done",
+   "note": "The locker's preview card collapses into a slim bar pinned to the top.",
+   "milestone": "M2.6",
+   "since": "2026-11-04"
+  },
+  {
+   "section": "Visual",
+   "goal": "Moves with you as you scroll",
+   "depth": 2,
+   "parent": "Player banner at top of screen",
+   "order": 14,
+   "status": "done",
+   "note": "It follows the scroll without changing height.",
+   "milestone": "M2.6",
+   "since": "2026-11-04"
+  },
+  {
+   "section": "Visual",
+   "goal": "Crowded",
+   "depth": 1,
+   "parent": null,
+   "order": 15,
+   "status": "in_progress",
+   "note": "Lobby chips kept plain, and avatars and banners stand still during play. No full declutter pass yet.",
+   "milestone": "M4",
+   "since": ""
+  },
+  {
+   "section": "Visual",
+   "goal": "Banner at beginning of catalog",
+   "depth": 1,
+   "parent": null,
+   "order": 16,
+   "status": "in_progress",
+   "note": "Banners have their own marketplace tab, third after Bundles, not first.",
+   "milestone": "M4",
+   "since": ""
+  },
+  {
+   "section": "Visual",
+   "goal": "Make catalog smaller and more obvious to scroll",
+   "depth": 2,
+   "parent": "Banner at beginning of catalog",
+   "order": 17,
+   "status": "not_started",
+   "note": "",
+   "milestone": "M2.6",
+   "since": ""
+  },
+  {
+   "section": "Visual",
+   "goal": "Hairstyles: better and broader, free",
+   "depth": 1,
+   "parent": null,
+   "order": 18,
+   "status": "done",
+   "note": "Hair redrawn, five styles added, the 12 everyday cuts free.",
+   "milestone": "M2.6",
+   "since": "2026-11-04"
+  },
+  {
+   "section": "Live",
+   "goal": "Competitive matchmaking?",
+   "depth": 1,
+   "parent": null,
+   "order": 19,
+   "status": "planned",
+   "note": "Last in M6: it needs enough players to match. The nightly live game (built Nov 10) comes first to gather them.",
+   "milestone": "M6",
+   "since": ""
+  },
+  {
+   "section": "Live",
+   "goal": "Anti cheat",
+   "depth": 1,
+   "parent": null,
+   "order": 20,
+   "status": "done",
+   "note": "Accuracy flagging, the review page, and the decided penalty: confirmed players are left off the live tables.",
+   "milestone": "M6",
+   "since": "2026-11-10"
+  },
+  {
+   "section": "Live",
+   "goal": "Track how close quotes, bids, etc are to real values over time, if a suspicious amount are too close, punish",
+   "depth": 2,
+   "parent": "Anti cheat",
+   "order": 21,
+   "status": "in_progress",
+   "note": "Tracked and flagged: players far more accurate than everyone else are shadow-flagged for your review at /admin/flags. Punishment isn't automatic, by design.",
+   "milestone": "M6",
+   "since": ""
+  },
+  {
+   "section": "Social",
+   "goal": "Friends function",
+   "depth": 1,
+   "parent": null,
+   "order": 22,
+   "status": "done",
+   "note": "Requests by game log, room, friend code or handle search; blocking.",
+   "milestone": "M5",
+   "since": "2026-11-04"
+  },
+  {
+   "section": "Social",
+   "goal": "Communities / group / clan functions",
+   "depth": 1,
+   "parent": null,
+   "order": 23,
+   "status": "done",
+   "note": "Groups with owners, leaderboards and members-only rooms.",
+   "milestone": "M5",
+   "since": "2026-11-04"
+  },
+  {
+   "section": "Social",
+   "goal": "Local function",
+   "depth": 1,
+   "parent": null,
+   "order": 24,
+   "status": "planned",
+   "note": "Nearby-game discovery, on live mode's plumbing.",
+   "milestone": "M6",
+   "since": ""
+  },
+  {
+   "section": "Social",
+   "goal": "Speak to play",
+   "depth": 1,
+   "parent": null,
+   "order": 25,
+   "status": "not_started",
+   "note": "Kept as an experiment, not a milestone.",
+   "milestone": "Side tracks",
+   "since": ""
+  },
+  {
+   "section": "Social",
+   "goal": "Voice identification?",
+   "depth": 1,
+   "parent": null,
+   "order": 26,
+   "status": "not_started",
+   "note": "Kept as an experiment, not a milestone.",
+   "milestone": "Side tracks",
+   "since": ""
+  },
+  {
+   "section": "Social",
+   "goal": "Send invite to groups with notifications",
+   "depth": 1,
+   "parent": null,
+   "order": 27,
+   "status": "done",
+   "note": "Play now invites every member, through the bell and phone notifications.",
+   "milestone": "M5",
+   "since": "2026-11-10"
+  },
+  {
+   "section": "Social",
+   "goal": "Game log, go back to see players, add friend opportunity.",
+   "depth": 1,
+   "parent": null,
+   "order": 28,
+   "status": "done",
+   "note": "Every saved game has a log with the table, rounds, trades and Add friend.",
+   "milestone": "M4",
+   "since": "2026-11-04"
+  },
+  {
+   "section": "Profile expansion, bio + achievements",
+   "goal": "Profile expansion, bio + achievements",
+   "depth": 1,
+   "parent": null,
+   "order": 29,
+   "status": "done",
+   "note": "Bio, badge shelf and the achievements page.",
+   "milestone": "M4",
+   "since": "2026-11-04"
+  },
+  {
+   "section": "Locker room",
+   "goal": "Profile picture is visible when selecting customization options",
+   "depth": 1,
+   "parent": null,
+   "order": 30,
+   "status": "done",
+   "note": "The locker's preview card shows the avatar and name card live.",
+   "milestone": "M2.6",
+   "since": "2026-11-04"
+  },
+  {
+   "section": "Locker room",
+   "goal": "Hairstyles free",
+   "depth": 1,
+   "parent": null,
+   "order": 31,
+   "status": "done",
+   "note": "Every everyday cut is free; buyers of now-free styles were refunded.",
+   "milestone": "M2.6",
+   "since": "2026-11-04"
+  },
+  {
+   "section": "Locker room",
+   "goal": "Make more hairstyles",
+   "depth": 2,
+   "parent": "Hairstyles free",
+   "order": 32,
+   "status": "done",
+   "note": "Five styles added.",
+   "milestone": "M2.6",
+   "since": "2026-11-04"
+  },
+  {
+   "section": "Locker room",
+   "goal": "Avatars more realistic",
+   "depth": 1,
+   "parent": null,
+   "order": 33,
+   "status": "in_progress",
+   "note": "Hair redrawn to look like real cuts. Faces and bodies unchanged.",
+   "milestone": "M2.6",
+   "since": ""
+  },
+  {
+   "section": "Marketing",
+   "goal": "Influencer equity partnership(s)",
+   "depth": 1,
+   "parent": null,
+   "order": 34,
+   "status": "not_started",
+   "note": "",
+   "milestone": "Marketing",
+   "since": ""
+  },
+  {
+   "section": "Marketing",
+   "goal": "TikTok posting agent",
+   "depth": 1,
+   "parent": null,
+   "order": 35,
+   "status": "not_started",
+   "note": "Planned as an offline tool run from your machine, like the verifier.",
+   "milestone": "Side tracks",
+   "since": ""
+  },
+  {
+   "section": "Marketing",
+   "goal": "Black background with simple question",
+   "depth": 1,
+   "parent": null,
+   "order": 36,
+   "status": "not_started",
+   "note": "The share-card renderer side track.",
+   "milestone": "Side tracks",
+   "since": ""
+  },
+  {
+   "section": "Cloudflare anti bots",
+   "goal": "Cloudflare anti bots",
+   "depth": 1,
+   "parent": null,
+   "order": 37,
+   "status": "untracked",
+   "note": "Added to the log; not tracked yet.",
+   "milestone": "",
+   "since": ""
+  },
+  {
+   "section": "Question bank",
+   "goal": "Grow the bank to 1,000 playable questions",
+   "depth": 1,
+   "parent": null,
+   "order": 38,
+   "status": "in_progress",
+   "note": "Set Nov 11, 2026 so the endless table can run all day without repeats. 365 playable after the Nov 11 verifier run, up from 162, and live since the Nov 12 deploy.",
+   "milestone": "M6",
+   "since": ""
+  },
+  {
+   "section": "Question bank",
+   "goal": "Research a batch of about 250 new questions",
+   "depth": 2,
+   "parent": "Grow the bank to 1,000 playable questions",
+   "order": 39,
+   "status": "done",
+   "note": "245 added Nov 11 (230 standard across ten categories, 15 case), all unverified until the verifier passes them.",
+   "milestone": "M6",
+   "since": "2026-11-11"
+  },
+  {
+   "section": "Question bank",
+   "goal": "Run the verifier on the new batch",
+   "depth": 2,
+   "parent": "Grow the bank to 1,000 playable questions",
+   "order": 40,
+   "status": "in_progress",
+   "note": "Run Nov 11 on Haiku for $5.89: 203 of 245 passed, 10 need review, and 32 are still unverified because the connection dropped. Rerun with --limit 32 to finish.",
+   "milestone": "M6",
+   "since": ""
+  },
+  {
+   "section": "Question bank",
+   "goal": "No repeats within a week on the endless table",
+   "depth": 1,
+   "parent": null,
+   "order": 41,
+   "status": "planned",
+   "note": "The table holds back the most recent half of its pool now; a week without repeats needs the bank near 1,000.",
+   "milestone": "M6",
+   "since": ""
+  },
+  {
+   "section": "Main menu",
+   "goal": "One menu that leads to every page",
+   "depth": 1,
+   "parent": null,
+   "order": 42,
+   "status": "done",
+   "note": "Live Nov 11: the app opens on a menu that links every other page, and each page's wordmark leads back.",
+   "milestone": "M5",
+   "since": "2026-11-11"
+  },
+  {
+   "section": "Main menu",
+   "goal": "Social, Play and Customization as three screens you swipe between",
+   "depth": 1,
+   "parent": null,
+   "order": 43,
+   "status": "done",
+   "note": "Live Nov 11: Play in the middle, a tab bar that follows the swipe, side by side on a wide screen.",
+   "milestone": "M5",
+   "since": "2026-11-11"
+  },
+  {
+   "section": "Main menu",
+   "goal": "Social redesigned from the sketch: your card, then Groups and Friends as sliding tabs",
+   "depth": 1,
+   "parent": null,
+   "order": 44,
+   "status": "done",
+   "note": "Live Nov 11: it replaced the separate Social page; the handle, notifications and public profile moved to the profile page.",
+   "milestone": "M5",
+   "since": "2026-11-11"
+  },
+  {
+   "section": "Main menu",
+   "goal": "The Social, Play and Customization bar on every page outside a game",
+   "depth": 1,
+   "parent": null,
+   "order": 45,
+   "status": "done",
+   "note": "Live Nov 11: left off the phone's game view and the host screen only.",
+   "milestone": "M5",
+   "since": "2026-11-11"
+  },
+  {
+   "section": "Main menu",
+   "goal": "A global leaderboard on Social: groups and players by prestige",
+   "depth": 1,
+   "parent": null,
+   "order": 46,
+   "status": "done",
+   "note": "Live Nov 12: a podium of the top three at the top of Social, and the top fifty of each at /leaderboard.",
+   "milestone": "M5",
+   "since": "2026-11-12"
+  },
+  {
+   "section": "Groups",
+   "goal": "Shields, combined prestige, and a start-a-group dialog",
+   "depth": 1,
+   "parent": null,
+   "order": 47,
+   "status": "done",
+   "note": "Live Nov 11: group icons are shields, 13 fuller drawings were added, each group shows its members' prestige added up, and one dialog sets the name, bio and shield for 1,500 coins.",
+   "milestone": "M5",
+   "since": "2026-11-11"
+  },
+  {
+   "section": "Groups",
+   "goal": "Invite players from the group page, with a link to share",
+   "depth": 1,
+   "parent": null,
+   "order": 48,
+   "status": "done",
+   "note": "Live Nov 11: copy the link, share it from the phone, or show a QR code; the owner can replace it. Shared links preview with the group's name and picture.",
+   "milestone": "M5",
+   "since": "2026-11-11"
+  },
+  {
+   "section": "Groups",
+   "goal": "Group customization: a bio, icon drawings and colours, uploaded pictures",
+   "depth": 1,
+   "parent": null,
+   "order": 49,
+   "status": "done",
+   "note": "Live Nov 11: 26 shield drawings on 8 colours, or a picture the server redraws before storing. Bios and pictures can be reported.",
+   "milestone": "M5",
+   "since": "2026-11-11"
+  },
+  {
+   "section": "Groups",
+   "goal": "Starting a group costs 1,500 coins",
+   "depth": 1,
+   "parent": null,
+   "order": 50,
+   "status": "done",
+   "note": "Live Nov 11: existing groups were free and stay; disbanding returns nothing.",
+   "milestone": "M5",
+   "since": "2026-11-11"
+  },
+  {
+   "section": "Groups",
+   "goal": "The host-group invite: a signed-in host invites the table to a group, before and after the game",
+   "depth": 1,
+   "parent": null,
+   "order": 51,
+   "status": "done",
+   "note": "Live Nov 17: the host picks any group they're in, every phone gets a pop-up to join, and the offer can go out again on the final scores.",
+   "milestone": "M5",
+   "since": "2026-11-17"
+  },
+  {
+   "section": "Groups",
+   "goal": "The host as a second entity: one account hosts on one screen and plays from another",
+   "depth": 1,
+   "parent": null,
+   "order": 52,
+   "status": "done",
+   "note": "Live Nov 17: the host screen carries the account's name, avatar and groups without taking a seat, and can sign in where it is.",
+   "milestone": "M5",
+   "since": "2026-11-17"
+  },
+  {
+   "section": "Endless table",
+   "goal": "A table that never closes, open to anyone at any time",
+   "depth": 1,
+   "parent": null,
+   "order": 53,
+   "status": "done",
+   "note": "Live Nov 11 at /open: room OPEN, a question in under a minute, idles when nobody is there.",
+   "milestone": "M6",
+   "since": "2026-11-11"
+  },
+  {
+   "section": "Endless table",
+   "goal": "House bots that never know the answer",
+   "depth": 1,
+   "parent": null,
+   "order": 54,
+   "status": "done",
+   "note": "Live Nov 11: one shared wrong view per question, market-making quotes that learn from trades and the hint.",
+   "milestone": "M6",
+   "since": "2026-11-11"
+  },
+  {
+   "section": "Endless table",
+   "goal": "Points, coins and XP every round, with daily and weekly boards",
+   "depth": 1,
+   "parent": null,
+   "order": 55,
+   "status": "done",
+   "note": "Live Nov 11. Points won off the house pay a quarter of the coins; sitting idle earns nothing.",
+   "milestone": "M6",
+   "since": "2026-11-11"
+  },
+  {
+   "section": "Endless table",
+   "goal": "A second table when the first fills",
+   "depth": 1,
+   "parent": null,
+   "order": 56,
+   "status": "planned",
+   "note": "One table of up to 120 for now.",
+   "milestone": "M6",
+   "since": ""
+  },
+  {
+   "section": "Endless table",
+   "goal": "Overlapping markets, so one is always closing",
+   "depth": 1,
+   "parent": null,
+   "order": 57,
+   "status": "planned",
+   "note": "Several questions open at once with no sealed-quote wait. A bigger change to the screen and the messages.",
+   "milestone": "M6",
+   "since": ""
+  },
+  {
+   "section": "Endless table",
+   "goal": "Scale past one machine",
+   "depth": 1,
+   "parent": null,
+   "order": 58,
+   "status": "planned",
+   "note": "Diffs instead of full snapshots, and tables pinned to machines. Only needed with thousands online.",
+   "milestone": "M6",
+   "since": ""
+  },
+  {
+   "section": "Team tools",
+   "goal": "A players page: every account's XP, prestige, coins and record",
+   "depth": 1,
+   "parent": null,
+   "order": 59,
+   "status": "done",
+   "note": "Live Nov 17 at /admin/players: a sortable, searchable table read live from the game, with totals and an Excel download.",
+   "milestone": "M5",
+   "since": "2026-11-17"
+  },
+  {
+   "section": "Team tools",
+   "goal": "Teammates can be given view access to the players page",
+   "depth": 1,
+   "parent": null,
+   "order": 60,
+   "status": "done",
+   "note": "Live Nov 17: admins add a teammate by email on the page; teammates can view and download but see no emails or accuracy flags.",
+   "milestone": "M5",
+   "since": "2026-11-17"
+  },
+  {
+   "section": "Team tools",
+   "goal": "An overview page: the app's structure, services and live status in one place",
+   "depth": 1,
+   "parent": null,
+   "order": 61,
+   "status": "done",
+   "note": "Live Nov 17 at /admin/overview: a chart of the app's layers, every page, module and table, the outside services, and live status.",
+   "milestone": "M5",
+   "since": "2026-11-17"
+  },
+  {
+   "section": "Team tools",
+   "goal": "Plans and goals where every contributor can see them",
+   "depth": 1,
+   "parent": null,
+   "order": 62,
+   "status": "done",
+   "note": "Live Nov 17: milestones, what is in progress and next, every goal by area, and what shipped when, on the same page.",
+   "milestone": "M5",
+   "since": "2026-11-17"
+  },
+  {
+   "section": "Visual",
+   "goal": "Legendary and mythical items animate on every page",
+   "depth": 1,
+   "parent": null,
+   "order": 63,
+   "status": "done",
+   "note": "Live Nov 17: on the host screen, the phone's game view and the leaderboards, legendary and mythical effects, outfits and banners keep moving; everything else still holds still there.",
+   "milestone": "M2.6",
+   "since": "2026-11-17"
+  }
+ ],
+ "milestones": [
+  {
+   "id": "M0",
+   "name": "Engine",
+   "status": "done",
+   "shipped": "2026-11-02",
+   "summary": "Order book with price-time priority, partial fills, self-trade and position limits; log scoring.",
+   "open": ""
+  },
+  {
+   "id": "M1",
+   "name": "Hot-seat demo",
+   "status": "done",
+   "shipped": "2026-11-02",
+   "summary": "One page, one question, to find out whether the game is fun without a market maker.",
+   "open": ""
+  },
+  {
+   "id": "M2",
+   "name": "Rooms",
+   "status": "done",
+   "shipped": "2026-11-02",
+   "summary": "Host screen and phones over WebSockets, timers, sealed quotes, Best Quote, reconnect; live on Fly.",
+   "open": ""
+  },
+  {
+   "id": "M2.5",
+   "name": "Accounts",
+   "status": "done",
+   "shipped": "2026-11-03",
+   "summary": "Optional Google sign-in, saved results and coins.",
+   "open": ""
+  },
+  {
+   "id": "M2.6",
+   "name": "Avatars and marketplace",
+   "status": "done",
+   "shipped": "2026-11-04",
+   "summary": "Avatars on every name, a priced catalog, bundles, the locker, free everyday hair.",
+   "open": ""
+  },
+  {
+   "id": "M3",
+   "name": "Host tools",
+   "status": "in_progress",
+   "shipped": "",
+   "summary": "Categories, bots, demo, play again, paces, late join, drinks mode, case questions.",
+   "open": "Quote sizes 1-3; pause timers when the host disconnects."
+  },
+  {
+   "id": "M4",
+   "name": "Identity and progression",
+   "status": "done",
+   "shipped": "2026-11-04",
+   "summary": "XP and levels, prestige, banners and Academia, achievements, profiles, game log, end-of-game awards.",
+   "open": ""
+  },
+  {
+   "id": "M5",
+   "name": "Social",
+   "status": "done",
+   "shipped": "2026-11-10",
+   "summary": "Friends, groups and members-only rooms, the bell, reports, and phone notifications.",
+   "open": ""
+  },
+  {
+   "id": "M6",
+   "name": "Modes that need a crowd",
+   "status": "in_progress",
+   "shipped": "",
+   "summary": "Live mode, anti-cheat, the open table, nearby games, matchmaking, public rooms, app-store wrappers.",
+   "open": "Anti-cheat flagging and the nightly 9 PM live game are live (Nov 10), and the open table (Nov 11). Still to come: live reminders and watching, a second open table, nearby games, matchmaking, public rooms and app wrappers."
+  }
+ ],
+ "timeline": [
+  {
+   "date": "2026-10-28",
+   "title": "Spec written",
+   "detail": "The game, the stack and the milestones, in CLAUDE.md."
+  },
+  {
+   "date": "2026-11-02",
+   "title": "Engine, rooms and first deploy",
+   "detail": "M0 to M2, the question verifier, and almanac-game.fly.dev."
+  },
+  {
+   "date": "2026-11-03",
+   "title": "Accounts, avatars and host tools",
+   "detail": "Google sign-in, coins, the marketplace, bots, drinks mode, 120-player rooms."
+  },
+  {
+   "date": "2026-11-04",
+   "title": "Progression and social",
+   "detail": "Levels, prestige, Academia, achievements, game log; friends, groups and the bell."
+  },
+  {
+   "date": "2026-11-09",
+   "title": "Case questions",
+   "detail": "43 researched case questions for the fintech club, with longer timers and figure hints."
+  },
+  {
+   "date": "2026-11-10",
+   "title": "Case modes, phone notifications, dashboard, M6 begins",
+   "detail": "Extra/Default/Off switch with 1.5x-2.5x points, web push, this dashboard, anti-cheat accuracy flags, and the nightly 9 PM live game."
+  },
+  {
+   "date": "2026-11-11",
+   "title": "The open table and a bigger question bank",
+   "detail": "A table that never closes, with house bots that don't know the answer and points every round, live at /open; 245 new questions researched, waiting on the verifier. A main menu of three swipeable screens, live the same day. Group invite links, customization and a 1,500-coin cost to start one, then the Social screen redrawn from a sketch and a navigation bar on every page, all live the same day."
+  },
+  {
+   "date": "2026-11-12",
+   "title": "A global leaderboard, and 203 new questions verified",
+   "detail": "Groups and players ranked by prestige, at the top of Social and at /leaderboard. The verifier passed 203 of the 245 new questions, taking the bank to 365 playable. Both went live the same day."
+  },
+  {
+   "date": "2026-11-17",
+   "title": "The host-group invite",
+   "detail": "A signed-in host screen invites the whole table to one of its groups, in the lobby and again after the game, with a pop-up on every phone. The host is its own entity, so the same account can host and play. Live the same day."
+  },
+  {
+   "date": "2026-11-17",
+   "title": "A players page for the team",
+   "detail": "Every signed-in account in one live table at /admin/players, with an Excel download, and view access for teammates. Live the same day."
+  },
+  {
+   "date": "2026-11-17",
+   "title": "An overview page for the team",
+   "detail": "An organizational chart of the app at /admin/overview: how it fits together, its plans and the services it runs on. Live the same day."
+  },
+  {
+   "date": "2026-11-17",
+   "title": "Top-tier items move everywhere",
+   "detail": "Legendary and mythical effects, outfits and banners now animate on the host screen, the phone's game view and the leaderboards, so the two top tiers show off during a game. Live the same day."
+  },
+  {
+   "date": "2026-11-17",
+   "title": "800 coins for every account",
+   "detail": "A one-off gift: every account that existed that day was credited 800 coins, once. Accounts made later start with the usual welcome coins."
+  },
+  {
+   "date": "2026-11-17",
+   "title": "A quieter host invite and social pages",
+   "detail": "The host's group invite became one small button that shows the host's groups only when pressed, and the social pages stopped naming prestige: the star and the number stay, the word doesn't."
+  }
+ ],
+ "snapshot": [
+  {
+   "date": "2026-11-19",
+   "goals_done": 37,
+   "goals_total": 64,
+   "milestones_done": 7,
+   "milestones_total": 9,
+   "tests": 716,
+   "code_files": 128,
+   "code_lines": 34075,
+   "questions_servable": 365,
+   "questions_total": 432,
+   "case_questions_servable": 51,
+   "accounts": null,
+   "games": null
+  }
+ ],
+ "history": [
+  {
+   "date": "2026-11-10",
+   "goals_done": 17,
+   "goals_total": 36,
+   "milestones_done": 7,
+   "milestones_total": 9,
+   "tests": 585,
+   "code_files": 101,
+   "code_lines": 24895,
+   "questions_servable": 162,
+   "questions_total": 187,
+   "case_questions_servable": 37,
+   "accounts": null,
+   "games": null
+  },
+  {
+   "date": "2026-11-11",
+   "goals_done": 29,
+   "goals_total": 54,
+   "milestones_done": 7,
+   "milestones_total": 9,
+   "tests": 658,
+   "code_files": 115,
+   "code_lines": 29293,
+   "questions_servable": 162,
+   "questions_total": 432,
+   "case_questions_servable": 37,
+   "accounts": null,
+   "games": null
+  },
+  {
+   "date": "2026-11-12",
+   "goals_done": 30,
+   "goals_total": 55,
+   "milestones_done": 7,
+   "milestones_total": 9,
+   "tests": 675,
+   "code_files": 118,
+   "code_lines": 30122,
+   "questions_servable": 365,
+   "questions_total": 432,
+   "case_questions_servable": 51,
+   "accounts": null,
+   "games": null
+  },
+  {
+   "date": "2026-11-13",
+   "goals_done": 30,
+   "goals_total": 55,
+   "milestones_done": 7,
+   "milestones_total": 9,
+   "tests": 675,
+   "code_files": 118,
+   "code_lines": 30122,
+   "questions_servable": 365,
+   "questions_total": 432,
+   "case_questions_servable": 51,
+   "accounts": null,
+   "games": null
+  },
+  {
+   "date": "2026-11-14",
+   "goals_done": 30,
+   "goals_total": 55,
+   "milestones_done": 7,
+   "milestones_total": 9,
+   "tests": 675,
+   "code_files": 118,
+   "code_lines": 30122,
+   "questions_servable": 365,
+   "questions_total": 432,
+   "case_questions_servable": 51,
+   "accounts": null,
+   "games": null
+  },
+  {
+   "date": "2026-11-15",
+   "goals_done": 30,
+   "goals_total": 55,
+   "milestones_done": 7,
+   "milestones_total": 9,
+   "tests": 675,
+   "code_files": 118,
+   "code_lines": 30122,
+   "questions_servable": 365,
+   "questions_total": 432,
+   "case_questions_servable": 51,
+   "accounts": null,
+   "games": null
+  },
+  {
+   "date": "2026-11-16",
+   "goals_done": 30,
+   "goals_total": 55,
+   "milestones_done": 7,
+   "milestones_total": 9,
+   "tests": 675,
+   "code_files": 118,
+   "code_lines": 30122,
+   "questions_servable": 365,
+   "questions_total": 432,
+   "case_questions_servable": 51,
+   "accounts": null,
+   "games": null
+  },
+  {
+   "date": "2026-11-17",
+   "goals_done": 37,
+   "goals_total": 62,
+   "milestones_done": 7,
+   "milestones_total": 9,
+   "tests": 716,
+   "code_files": 128,
+   "code_lines": 34075,
+   "questions_servable": 365,
+   "questions_total": 432,
+   "case_questions_servable": 51,
+   "accounts": null,
+   "games": null
+  },
+  {
+   "date": "2026-11-18",
+   "goals_done": 37,
+   "goals_total": 62,
+   "milestones_done": 7,
+   "milestones_total": 9,
+   "tests": 716,
+   "code_files": 128,
+   "code_lines": 34075,
+   "questions_servable": 365,
+   "questions_total": 432,
+   "case_questions_servable": 51,
+   "accounts": null,
+   "games": null
+  },
+  {
+   "date": "2026-11-19",
+   "goals_done": 37,
+   "goals_total": 64,
+   "milestones_done": 7,
+   "milestones_total": 9,
+   "tests": 716,
+   "code_files": 128,
+   "code_lines": 34075,
+   "questions_servable": 365,
+   "questions_total": 432,
+   "case_questions_servable": 51,
+   "accounts": null,
+   "games": null
+  }
+ ],
+ "questions_by_category": [
+  {
+   "category": "ai",
+   "kind": "case",
+   "servable": 10,
+   "total": 12
+  },
+  {
+   "category": "animals",
+   "kind": "standard",
+   "servable": 21,
+   "total": 26
+  },
+  {
+   "category": "business",
+   "kind": "case",
+   "servable": 17,
+   "total": 17
+  },
+  {
+   "category": "culture",
+   "kind": "standard",
+   "servable": 28,
+   "total": 55
+  },
+  {
+   "category": "finance",
+   "kind": "case",
+   "servable": 15,
+   "total": 20
+  },
+  {
+   "category": "food",
+   "kind": "standard",
+   "servable": 32,
+   "total": 44
+  },
+  {
+   "category": "games",
+   "kind": "standard",
+   "servable": 29,
+   "total": 32
+  },
+  {
+   "category": "history",
+   "kind": "standard",
+   "servable": 41,
+   "total": 43
+  },
+  {
+   "category": "math",
+   "kind": "standard",
+   "servable": 10,
+   "total": 10
+  },
+  {
+   "category": "money",
+   "kind": "standard",
+   "servable": 34,
+   "total": 35
+  },
+  {
+   "category": "nature",
+   "kind": "standard",
+   "servable": 12,
+   "total": 12
+  },
+  {
+   "category": "places",
+   "kind": "standard",
+   "servable": 13,
+   "total": 14
+  },
+  {
+   "category": "science",
+   "kind": "standard",
+   "servable": 38,
+   "total": 39
+  },
+  {
+   "category": "spicy",
+   "kind": "standard",
+   "servable": 12,
+   "total": 18
+  },
+  {
+   "category": "sports",
+   "kind": "standard",
+   "servable": 44,
+   "total": 46
+  },
+  {
+   "category": "tech",
+   "kind": "case",
+   "servable": 9,
+   "total": 9
+  }
+ ],
+ "questions_by_status": [
+  {
+   "status": "verified",
+   "questions": 1
+  },
+  {
+   "status": "agent_verified",
+   "questions": 364
+  },
+  {
+   "status": "needs_review",
+   "questions": 29
+  },
+  {
+   "status": "disputed",
+   "questions": 6
+  },
+  {
+   "status": "unverified",
+   "questions": 32
+  }
+ ],
+ "verifier_checks": [
+  {
+   "date": "2026-11-03",
+   "model": "claude-haiku-5-5",
+   "questions_checked": 67
+  },
+  {
+   "date": "2026-11-03",
+   "model": "claude-opus-5-5",
+   "questions_checked": 1
+  },
+  {
+   "date": "2026-11-04",
+   "model": "claude-haiku-5-5",
+   "questions_checked": 76
+  },
+  {
+   "date": "2026-11-09",
+   "model": "claude-sonnet-5-5",
+   "questions_checked": 43
+  },
+  {
+   "date": "2026-11-11",
+   "model": "claude-haiku-5-5",
+   "questions_checked": 213
+  }
+ ],
+ "verifier_spend": [
+  {
+   "date": "2026-11-11",
+   "model": "claude-haiku-5-5",
+   "questions": 245,
+   "input_tokens": 15394202,
+   "output_tokens": 371186,
+   "searches": 416,
+   "usd": 5.885
+  }
+ ],
+ "model_rates": [
+  {
+   "model": "claude-sonnet-5-5",
+   "use": "Default verifier model",
+   "input_per_million_usd": 2,
+   "output_per_million_usd": 10,
+   "web_search_per_thousand_usd": 10.0
+  },
+  {
+   "model": "claude-opus-5-5",
+   "use": "Hard cases",
+   "input_per_million_usd": 4,
+   "output_per_million_usd": 20,
+   "web_search_per_thousand_usd": 10.0
+  },
+  {
+   "model": "claude-haiku-5-5",
+   "use": "Bulk question checks",
+   "input_per_million_usd": 0.1,
+   "output_per_million_usd": 0.5,
+   "web_search_per_thousand_usd": 10.0
+  }
+ ],
+ "costs": [
+  {
+   "item": "Game server machine",
+   "service": "Fly.io",
+   "basis": "shared-cpu-1x with 512 MB, $3.69 a month if it never stopped (Fly's listed price for Ashburn and Secaucus; Chicago may differ slightly). It stops when idle, so the real charge is a fraction of this.",
+   "monthly_max_usd": 3.69
+  },
+  {
+   "item": "Server disk while stopped",
+   "service": "Fly.io",
+   "basis": "$0.15 per GB-month of root file system, about 0.06 GB for this image.",
+   "monthly_max_usd": 0.01
+  },
+  {
+   "item": "Database volume",
+   "service": "Fly.io",
+   "basis": "1 GB at $0.15 per GB-month, charged whether or not the machine runs.",
+   "monthly_max_usd": 0.15
+  },
+  {
+   "item": "Volume snapshots",
+   "service": "Fly.io",
+   "basis": "$0.08 per GB-month after the first 10 GB, which are free. The database is far under 10 GB.",
+   "monthly_max_usd": 0.0
+  },
+  {
+   "item": "Outbound data",
+   "service": "Fly.io",
+   "basis": "$0.02 per GB in North America. A 100-player, 7-round game sends about 0.1 GB.",
+   "monthly_max_usd": 0.02
+  },
+  {
+   "item": "Google sign-in",
+   "service": "Google Identity Services",
+   "basis": "No charge.",
+   "monthly_max_usd": 0.0
+  },
+  {
+   "item": "Phone notifications",
+   "service": "Browser push services",
+   "basis": "No charge.",
+   "monthly_max_usd": 0.0
+  }
+ ],
+ "cost_summary": [
+  {
+   "monthly_max_usd": 3.87,
+   "fly_waiver_usd": 5.0,
+   "revenue_usd": 0,
+   "prices_checked": "2026-11-10"
+  }
+ ],
+ "services": [
+  {
+   "service": "Fly.io",
+   "category": "Hosting",
+   "role": "Runs the game server, holds the database volume and the secrets.",
+   "setup": "Personal organization, pay as you go. One shared-cpu-1x machine with 512 MB in Chicago (ord) that stops when idle; a 1 GB volume at /data; volume snapshots before each deploy.",
+   "since": "2026-11-02",
+   "pricing": "Billed by the second while running. Monthly bills under $5 are waived for personal organizations.",
+   "link": "https://docs.fly.io/about/pricing"
+  },
+  {
+   "service": "Google Identity Services",
+   "category": "Sign-in",
+   "role": "Sign in with Google for accounts; the server checks each ID token.",
+   "setup": "One OAuth client (web application) for almanac-game.fly.dev and localhost. The client ID is public; the client secret is never used by the app.",
+   "since": "2026-11-03",
+   "pricing": "Free.",
+   "link": "https://developers.google.com/identity/gsi/web"
+  },
+  {
+   "service": "Anthropic Claude API",
+   "category": "Question research",
+   "role": "The offline question verifier, run from your machine. The game server never calls it.",
+   "setup": "Your API key, used only in your terminal. Models: Haiku for bulk checks, Sonnet as the default, Opus once.",
+   "since": "2026-11-02",
+   "pricing": "Per token and per web search; see the model rates under Financials.",
+   "link": "https://www.anthropic.com/pricing"
+  },
+  {
+   "service": "Browser push services",
+   "category": "Notifications",
+   "role": "Deliver phone and desktop notifications (Apple, Google and Mozilla run them for their browsers).",
+   "setup": "A VAPID key pair stored as Fly secrets. Only the server's background sender talks to them.",
+   "since": "2026-11-10",
+   "pricing": "Free.",
+   "link": "https://datatracker.ietf.org/doc/html/rfc8292"
+  },
+  {
+   "service": "Docker Hub, npm and PyPI",
+   "category": "Build",
+   "role": "Base images (node:22-slim, python:3.12-slim) and packages, fetched only when Fly builds a deploy.",
+   "setup": "No account needed.",
+   "since": "2026-11-02",
+   "pricing": "Free.",
+   "link": ""
+  },
+  {
+   "service": "Claude Code",
+   "category": "Development",
+   "role": "Builds and deploys the project to the spec in CLAUDE.md.",
+   "setup": "Runs on your machine against the OneDrive project folder.",
+   "since": "2026-11-02",
+   "pricing": "Covered by your Claude plan.",
+   "link": ""
+  }
+ ],
+ "stack": [
+  {
+   "layer": "Runtime",
+   "tool": "Python",
+   "version": "3.12.10",
+   "role": "Server language (3.12 in production)"
+  },
+  {
+   "layer": "Server",
+   "tool": "fastapi",
+   "version": "0.162.0",
+   "role": "Web framework: the HTTP API and the /ws endpoint"
+  },
+  {
+   "layer": "Server",
+   "tool": "starlette",
+   "version": "1.10.0",
+   "role": "ASGI toolkit under FastAPI; serves the built client"
+  },
+  {
+   "layer": "Server",
+   "tool": "uvicorn",
+   "version": "0.54.0",
+   "role": "ASGI server that runs the app"
+  },
+  {
+   "layer": "Server",
+   "tool": "websockets",
+   "version": "15.0.1",
+   "role": "WebSocket protocol for the live game"
+  },
+  {
+   "layer": "Server",
+   "tool": "pydantic",
+   "version": "2.14.2",
+   "role": "Validates every message and the question bank"
+  },
+  {
+   "layer": "Server",
+   "tool": "google-auth",
+   "version": "2.62.1",
+   "role": "Checks Google sign-in tokens"
+  },
+  {
+   "layer": "Server",
+   "tool": "pywebpush",
+   "version": "2.5.0",
+   "role": "Encrypts and sends phone notifications"
+  },
+  {
+   "layer": "Server",
+   "tool": "py-vapid",
+   "version": "1.9.6",
+   "role": "Signs push requests with the VAPID key"
+  },
+  {
+   "layer": "Server",
+   "tool": "cryptography",
+   "version": "50.0.2",
+   "role": "Key handling for web push"
+  },
+  {
+   "layer": "Server",
+   "tool": "requests",
+   "version": "2.34.2",
+   "role": "HTTP client for Google and push services"
+  },
+  {
+   "layer": "Question tools",
+   "tool": "anthropic",
+   "version": "1.17.0",
+   "role": "Claude API client for the offline verifier"
+  },
+  {
+   "layer": "Question tools",
+   "tool": "pypdf",
+   "version": "6.21.4",
+   "role": "Reads PDF sources the verifier cites"
+  },
+  {
+   "layer": "Testing",
+   "tool": "pytest",
+   "version": "8.4.2",
+   "role": "The test suite"
+  },
+  {
+   "layer": "Testing",
+   "tool": "httpx",
+   "version": "0.28.1",
+   "role": "HTTP test client"
+  },
+  {
+   "layer": "Server",
+   "tool": "SQLite",
+   "version": "3.49.1",
+   "role": "Accounts, saved games and social data, in one file"
+  },
+  {
+   "layer": "Client",
+   "tool": "react",
+   "version": "18.3.1",
+   "role": "UI library"
+  },
+  {
+   "layer": "Client",
+   "tool": "react-dom",
+   "version": "18.3.1",
+   "role": "Renders React in the browser"
+  },
+  {
+   "layer": "Client",
+   "tool": "typescript",
+   "version": "5.6.3",
+   "role": "Typed JavaScript; checked on every build"
+  },
+  {
+   "layer": "Client",
+   "tool": "vite",
+   "version": "6.0.7",
+   "role": "Dev server and production bundler"
+  },
+  {
+   "layer": "Client",
+   "tool": "@vitejs/plugin-react",
+   "version": "4.3.4",
+   "role": "React support for Vite"
+  },
+  {
+   "layer": "Client",
+   "tool": "qrcode",
+   "version": "1.5.4",
+   "role": "The join QR code on the host lobby"
+  },
+  {
+   "layer": "Client",
+   "tool": "@fontsource-variable/inter",
+   "version": "5.1.0",
+   "role": "Inter, bundled (no font service)"
+  },
+  {
+   "layer": "Client",
+   "tool": "@fontsource-variable/jetbrains-mono",
+   "version": "5.1.1",
+   "role": "JetBrains Mono for numbers, bundled"
+  },
+  {
+   "layer": "Deploy",
+   "tool": "Docker image node:22-slim",
+   "version": "22-slim",
+   "role": "Builds the client"
+  },
+  {
+   "layer": "Deploy",
+   "tool": "Docker image python:3.12-slim",
+   "version": "3.12-slim",
+   "role": "Runs the server"
+  },
+  {
+   "layer": "Deploy",
+   "tool": "Fly Machine",
+   "version": "shared-cpu-1x 512mb",
+   "role": "One instance in ord, stopped when idle"
+  }
+ ],
+ "production": null
+}

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#060a12" />
+    <!-- Installable to a Home Screen, which an iPhone requires before it allows web push. -->
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Almanac" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>Almanac</title>
+  </head>
+  <body>
+    <div id="root">
+      <div class="loader" role="status">
+        <div class="loader-book" aria-hidden="true">
+          <div class="loader-cover"></div>
+          <div class="loader-side loader-left"></div>
+          <div class="loader-side loader-right"></div>
+          <div class="loader-page loader-page-0"></div>
+          <div class="loader-page loader-page-1"></div>
+          <div class="loader-page loader-page-2"></div>
+          <div class="loader-page loader-page-3"></div>
+          <div class="loader-page loader-page-4"></div>
+        </div>
+        <p class="loader-label">Opening the almanac</p>
+      </div>
+    </div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

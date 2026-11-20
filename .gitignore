@@ -1,0 +1,28 @@
+__pycache__/
+.pytest_cache/
+.venv/
+.env
+node_modules/
+client/dist/
+data/
+
+# Private notes: the development log holds API keys. Share a cleaned copy outside the repo.
+Almanac Development Log.docx
+# Word, Excel and PowerPoint lock files
+~$*
+
+# Machine-specific editor and agent settings
+.claude/launch.json
+.claude/settings.local.json
+.vscode/
+.idea/
+
+# Local databases, wherever they land
+*.db
+*.db-shm
+*.db-wal
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
